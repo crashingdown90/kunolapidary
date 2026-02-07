@@ -1,28 +1,14 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import { FOOTER_LINKS } from "@/lib/constants";
 
-const quickLinks = [
-  { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
-
-const categories = [
-  { href: "/blog?category=Lapidary", label: "Lapidary" },
-  { href: "/blog?category=Gemstones", label: "Gemstones" },
-  { href: "/blog?category=Geology", label: "Geology" },
-];
-
-const legalLinks = [
-  { href: "/privacy-policy", label: "Privacy Policy" },
-  { href: "/terms-of-service", label: "Terms of Service" },
-  { href: "/disclaimer", label: "Disclaimer" },
-];
+const quickLinks = FOOTER_LINKS.quickLinks;
+const categories = FOOTER_LINKS.categories;
+const legalLinks = FOOTER_LINKS.legal;
 
 export default function Footer() {
   return (
-    <footer className="bg-[#2D1810] text-[#D2B48C]">
+    <footer className="bg-text text-light">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Footer Columns */}
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -31,10 +17,10 @@ export default function Footer() {
             <Link href="/" className="inline-block" aria-label="Kuno Lapidary Home">
               <Logo size="sm" />
             </Link>
-            <p className="mt-3 text-lg font-medium text-[#F5E6D3]">
+            <p className="mt-3 text-lg font-medium text-cream">
               Exploring Earth&apos;s Hidden Treasures
             </p>
-            <p className="mt-2 text-sm leading-relaxed text-[#D2B48C]/80">
+            <p className="mt-2 text-sm leading-relaxed text-light/80">
               Discover the art and science of lapidary, learn about fascinating gemstones, and
               explore the geological wonders that shape our world.
             </p>
@@ -42,7 +28,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[#F5E6D3]">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-cream">
               Quick Links
             </h3>
             <ul className="mt-4 space-y-2">
@@ -50,7 +36,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#D2B48C]/80 transition-colors duration-200 hover:text-[#F5E6D3]"
+                    className="text-sm text-light/80 transition-colors duration-200 hover:text-cream"
                   >
                     {link.label}
                   </Link>
@@ -61,7 +47,7 @@ export default function Footer() {
 
           {/* Column 3: Categories */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[#F5E6D3]">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-cream">
               Categories
             </h3>
             <ul className="mt-4 space-y-2">
@@ -69,7 +55,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#D2B48C]/80 transition-colors duration-200 hover:text-[#F5E6D3]"
+                    className="text-sm text-light/80 transition-colors duration-200 hover:text-cream"
                   >
                     {link.label}
                   </Link>
@@ -80,7 +66,7 @@ export default function Footer() {
 
           {/* Column 4: Legal */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[#F5E6D3]">
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-cream">
               Legal
             </h3>
             <ul className="mt-4 space-y-2">
@@ -88,7 +74,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#D2B48C]/80 transition-colors duration-200 hover:text-[#F5E6D3]"
+                    className="text-sm text-light/80 transition-colors duration-200 hover:text-cream"
                   >
                     {link.label}
                   </Link>
@@ -99,8 +85,8 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-10 border-t border-[#D2B48C]/20 pt-6">
-          <div className="flex flex-col items-center justify-between gap-2 text-center text-xs text-[#D2B48C]/60 sm:flex-row sm:text-left">
+        <div className="mt-10 border-t border-light/20 pt-6">
+          <div className="flex flex-col items-center justify-between gap-2 text-center text-xs text-light/60 sm:flex-row sm:text-left">
             <p>&copy; 2026 Kuno Lapidary. All rights reserved.</p>
             <p>kunolapidary.com</p>
           </div>

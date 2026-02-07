@@ -1,5 +1,5 @@
 import { SITE_CONFIG } from '@/lib/constants'
-import type { Article } from '@/lib/mdx'
+import type { Article, FAQItem } from '@/lib/mdx'
 
 interface BreadcrumbItem {
   name: string
@@ -14,7 +14,7 @@ export function generateArticleJsonLd(article: Article) {
     description: article.metaDescription,
     url: `${SITE_CONFIG.url}/blog/${article.slug}`,
     datePublished: article.publishDate,
-    dateModified: article.publishDate,
+    dateModified: article.lastModified,
     author: {
       '@type': 'Person',
       name: article.author || SITE_CONFIG.author,
@@ -31,6 +31,8 @@ export function generateArticleJsonLd(article: Article) {
     image: {
       '@type': 'ImageObject',
       url: `${SITE_CONFIG.url}/blog/${article.slug}/opengraph-image`,
+      width: 1200,
+      height: 630,
     },
     articleSection: article.category,
     keywords: article.keywords.join(', '),
@@ -58,14 +60,21 @@ export function generateWebsiteJsonLd() {
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     inLanguage: 'en-US',
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${SITE_CONFIG.url}/blog?q={search_term_string}`,
+  }
+}
+
+export function generateFAQJsonLd(faq: FAQItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
       },
-      'query-input': 'required name=search_term_string',
-    },
+    })),
   }
 }
 
@@ -77,6 +86,5 @@ export function generateOrganizationJsonLd() {
     url: SITE_CONFIG.url,
     description: SITE_CONFIG.description,
     email: SITE_CONFIG.email,
-    sameAs: [],
   }
 }

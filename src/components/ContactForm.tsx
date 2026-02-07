@@ -48,10 +48,10 @@ export default function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-xl border border-[#6B8E23]/30 bg-[#6B8E23]/5 p-8 text-center">
+      <div className="rounded-xl border border-accent/30 bg-accent/5 p-8 text-center">
         <div className="mb-4 flex justify-center">
           <svg
-            className="h-16 w-16 text-[#6B8E23]"
+            className="h-16 w-16 text-accent"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -64,12 +64,15 @@ export default function ContactForm() {
             />
           </svg>
         </div>
-        <h3 className="mb-2 text-2xl font-bold text-[#5C4033]">
-          Message Sent Successfully!
+        <h3 className="mb-2 text-2xl font-bold text-primary">
+          Thank You!
         </h3>
-        <p className="mb-6 text-[#2D1810]/70">
-          Thank you for reaching out to Kuno Lapidary. We appreciate your
-          message and will get back to you as soon as possible.
+        <p className="mb-6 text-text/70">
+          Your message has been received. Please email us directly at{" "}
+          <a href="mailto:hello@kunolapidary.com" className="text-secondary underline">
+            hello@kunolapidary.com
+          </a>{" "}
+          if you need an immediate response.
         </p>
         <button
           onClick={() => {
@@ -77,7 +80,7 @@ export default function ContactForm() {
             setFormData({ name: "", email: "", subject: "", message: "" });
             setErrors({});
           }}
-          className="rounded-lg bg-[#5C4033] px-6 py-3 font-medium text-white transition-colors hover:bg-[#5C4033]/90"
+          className="rounded-lg bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary/90"
         >
           Send Another Message
         </button>
@@ -91,7 +94,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="name"
-          className="mb-2 block text-sm font-medium text-[#5C4033]"
+          className="mb-2 block text-sm font-medium text-primary"
         >
           Name <span className="text-red-600">*</span>
         </label>
@@ -102,10 +105,10 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((prev) => ({ ...prev, name: e.target.value }))
           }
-          className={`w-full rounded-lg border px-4 py-3 text-[#2D1810] placeholder-[#2D1810]/40 outline-none transition-colors focus:border-[#8B6914] focus:ring-2 focus:ring-[#8B6914]/20 ${
+          className={`w-full rounded-lg border px-4 py-3 text-text placeholder-text/40 outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20 ${
             errors.name
               ? "border-red-400 bg-red-50"
-              : "border-[#D2B48C]/50 bg-white"
+              : "border-light/50 bg-white"
           }`}
           placeholder="Your full name"
         />
@@ -118,7 +121,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="email"
-          className="mb-2 block text-sm font-medium text-[#5C4033]"
+          className="mb-2 block text-sm font-medium text-primary"
         >
           Email <span className="text-red-600">*</span>
         </label>
@@ -129,10 +132,10 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((prev) => ({ ...prev, email: e.target.value }))
           }
-          className={`w-full rounded-lg border px-4 py-3 text-[#2D1810] placeholder-[#2D1810]/40 outline-none transition-colors focus:border-[#8B6914] focus:ring-2 focus:ring-[#8B6914]/20 ${
+          className={`w-full rounded-lg border px-4 py-3 text-text placeholder-text/40 outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20 ${
             errors.email
               ? "border-red-400 bg-red-50"
-              : "border-[#D2B48C]/50 bg-white"
+              : "border-light/50 bg-white"
           }`}
           placeholder="your@email.com"
         />
@@ -145,7 +148,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="subject"
-          className="mb-2 block text-sm font-medium text-[#5C4033]"
+          className="mb-2 block text-sm font-medium text-primary"
         >
           Subject <span className="text-red-600">*</span>
         </label>
@@ -156,10 +159,10 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((prev) => ({ ...prev, subject: e.target.value }))
           }
-          className={`w-full rounded-lg border px-4 py-3 text-[#2D1810] placeholder-[#2D1810]/40 outline-none transition-colors focus:border-[#8B6914] focus:ring-2 focus:ring-[#8B6914]/20 ${
+          className={`w-full rounded-lg border px-4 py-3 text-text placeholder-text/40 outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20 ${
             errors.subject
               ? "border-red-400 bg-red-50"
-              : "border-[#D2B48C]/50 bg-white"
+              : "border-light/50 bg-white"
           }`}
           placeholder="What is your message about?"
         />
@@ -172,7 +175,7 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="mb-2 block text-sm font-medium text-[#5C4033]"
+          className="mb-2 block text-sm font-medium text-primary"
         >
           Message <span className="text-red-600">*</span>
         </label>
@@ -183,10 +186,10 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((prev) => ({ ...prev, message: e.target.value }))
           }
-          className={`w-full resize-vertical rounded-lg border px-4 py-3 text-[#2D1810] placeholder-[#2D1810]/40 outline-none transition-colors focus:border-[#8B6914] focus:ring-2 focus:ring-[#8B6914]/20 ${
+          className={`w-full resize-vertical rounded-lg border px-4 py-3 text-text placeholder-text/40 outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20 ${
             errors.message
               ? "border-red-400 bg-red-50"
-              : "border-[#D2B48C]/50 bg-white"
+              : "border-light/50 bg-white"
           }`}
           placeholder="Write your message here..."
         />
@@ -198,7 +201,7 @@ export default function ContactForm() {
       {/* Submit */}
       <button
         type="submit"
-        className="w-full rounded-lg bg-[#5C4033] px-6 py-3 text-lg font-medium text-white transition-colors hover:bg-[#5C4033]/90 focus:outline-none focus:ring-2 focus:ring-[#8B6914]/50 focus:ring-offset-2"
+        className="w-full rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2"
       >
         Send Message
       </button>

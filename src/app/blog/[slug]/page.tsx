@@ -7,16 +7,11 @@ import { mdxComponents } from "@/components/mdx/MDXComponents";
 import Breadcrumb from "@/components/Breadcrumb";
 import CategoryBadge from "@/components/CategoryBadge";
 import AdPlaceholder from "@/components/AdPlaceholder";
-import { generateArticleJsonLd } from "@/lib/seo";
-import LapidaryGuideHero from "@/components/illustrations/LapidaryGuideHero";
-import GemstonesHero from "@/components/illustrations/GemstonesHero";
-import RockFormationHero from "@/components/illustrations/RockFormationHero";
-
-const heroComponents: Record<string, React.ComponentType<{ className?: string }>> = {
-  "beginners-guide-to-lapidary": LapidaryGuideHero,
-  "most-valuable-gemstones-in-the-world": GemstonesHero,
-  "understanding-rock-formation-geological-journey": RockFormationHero,
-};
+import { generateArticleJsonLd, generateFAQJsonLd } from "@/lib/seo";
+import { articleIllustrations } from "@/lib/illustrations";
+import TableOfContents from "@/components/TableOfContents";
+import MDXErrorBoundary from "@/components/MDXErrorBoundary";
+import FAQSection from "@/components/FAQSection";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -39,6 +34,9 @@ export async function generateMetadata({
     description: article.metaDescription,
     keywords: article.keywords,
     authors: [{ name: article.author }],
+    alternates: {
+      canonical: `/blog/${article.slug}`,
+    },
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
@@ -68,13 +66,16 @@ export default async function BlogPostPage({
     notFound();
   }
 
-  const HeroComponent = heroComponents[article.slug];
+  const HeroComponent = articleIllustrations[article.slug];
   const allArticles = getAllArticles();
-  const relatedArticles = allArticles
-    .filter((a) => a.slug !== article.slug)
-    .slice(0, 2);
+  const otherArticles = allArticles.filter((a) => a.slug !== article.slug);
+  const sameCategoryArticles = otherArticles.filter((a) => a.category === article.category);
+  const relatedArticles = sameCategoryArticles.length >= 2
+    ? sameCategoryArticles.slice(0, 2)
+    : [...sameCategoryArticles, ...otherArticles.filter((a) => a.category !== article.category)].slice(0, 2);
 
   const jsonLd = generateArticleJsonLd(article);
+  const faqJsonLd = article.faq.length > 0 ? generateFAQJsonLd(article.faq) : null;
 
   return (
     <>
@@ -82,9 +83,15 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       {/* Breadcrumb */}
-      <div className="bg-[#F5E6D3]/50">
+      <div className="bg-cream/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Breadcrumb
             items={[
@@ -103,15 +110,15 @@ export default async function BlogPostPage({
             {/* Article Header */}
             <header className="mb-8">
               <CategoryBadge category={article.category} size="md" />
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D1810] mt-4 mb-6 leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text mt-4 mb-6 leading-tight">
                 {article.title}
               </h1>
-              <div className="flex flex-wrap items-center gap-4 text-sm text-[#8B7D6B]">
+              <div className="flex flex-wrap items-center gap-4 text-sm text-muted">
                 <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-[#5C4033] flex items-center justify-center text-white text-xs font-bold">
+                  <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold">
                     KL
                   </div>
-                  <span className="font-medium text-[#2D1810]">
+                  <span className="font-medium text-text">
                     {article.author}
                   </span>
                 </div>
@@ -130,7 +137,7 @@ export default async function BlogPostPage({
 
             {/* Hero Image */}
             {HeroComponent && (
-              <div className="rounded-2xl overflow-hidden mb-10 bg-gradient-to-br from-[#F5E6D3] to-[#E8DDD0] p-8">
+              <div className="rounded-2xl overflow-hidden mb-10 bg-gradient-to-br from-cream to-border p-8">
                 <HeroComponent className="w-full h-auto max-h-96 mx-auto" />
               </div>
             )}
@@ -139,20 +146,25 @@ export default async function BlogPostPage({
             <AdPlaceholder format="article" className="mb-8" />
 
             {/* Article Body */}
+            <MDXErrorBoundary>
             <div className="article-content max-w-none">
               <MDXRemote source={article.content} components={mdxComponents} />
             </div>
+            </MDXErrorBoundary>
+
+            {/* FAQ Section */}
+            <FAQSection items={article.faq} />
 
             {/* Tags */}
-            <div className="mt-10 pt-8 border-t-2 border-[#F5E6D3]">
-              <h3 className="text-sm font-semibold text-[#8B7D6B] mb-3 uppercase tracking-wider">
+            <div className="mt-10 pt-8 border-t-2 border-cream">
+              <h3 className="text-sm font-semibold text-muted mb-3 uppercase tracking-wider">
                 Tags
               </h3>
               <div className="flex flex-wrap gap-2">
                 {article.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1.5 bg-[#F5E6D3] text-[#5C4033] text-sm rounded-full"
+                    className="px-3 py-1.5 bg-cream text-primary text-sm rounded-full"
                   >
                     {tag}
                   </span>
@@ -161,16 +173,16 @@ export default async function BlogPostPage({
             </div>
 
             {/* Author Box */}
-            <div className="mt-10 p-6 bg-white rounded-2xl border border-[#E8DDD0]">
+            <div className="mt-10 p-6 bg-white rounded-2xl border border-border">
               <div className="flex items-start gap-4">
-                <div className="w-16 h-16 rounded-full bg-[#5C4033] flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
+                <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-white text-xl font-bold flex-shrink-0">
                   KL
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#2D1810] text-lg">
+                  <h3 className="font-bold text-text text-lg">
                     {article.author}
                   </h3>
-                  <p className="text-[#8B7D6B] text-sm mt-1 leading-relaxed">
+                  <p className="text-muted text-sm mt-1 leading-relaxed">
                     {article.authorBio}
                   </p>
                 </div>
@@ -183,7 +195,7 @@ export default async function BlogPostPage({
             {/* Related Articles */}
             {relatedArticles.length > 0 && (
               <section className="mt-14">
-                <h2 className="text-2xl font-bold text-[#2D1810] mb-8">
+                <h2 className="text-2xl font-bold text-text mb-8">
                   You May Also Enjoy
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
@@ -191,16 +203,16 @@ export default async function BlogPostPage({
                     <Link
                       key={related.slug}
                       href={`/blog/${related.slug}`}
-                      className="card-hover block p-6 bg-white rounded-2xl border border-[#E8DDD0]"
+                      className="card-hover block p-6 bg-white rounded-2xl border border-border"
                     >
                       <CategoryBadge category={related.category} size="sm" />
-                      <h3 className="font-bold text-[#2D1810] mt-3 mb-2 leading-snug">
+                      <h3 className="font-bold text-text mt-3 mb-2 leading-snug">
                         {related.title}
                       </h3>
-                      <p className="text-sm text-[#8B7D6B] line-clamp-2">
+                      <p className="text-sm text-muted line-clamp-2">
                         {related.excerpt}
                       </p>
-                      <span className="inline-block mt-3 text-sm text-[#5C4033] font-medium">
+                      <span className="inline-block mt-3 text-sm text-primary font-medium">
                         Read More →
                       </span>
                     </Link>
@@ -213,23 +225,15 @@ export default async function BlogPostPage({
           {/* Sidebar */}
           <aside className="lg:col-span-1">
             <div className="sticky top-24 space-y-8">
-              {/* Table of Contents placeholder */}
-              <div className="bg-white rounded-2xl border border-[#E8DDD0] p-6">
-                <h3 className="text-lg font-bold text-[#2D1810] mb-4">
-                  In This Article
-                </h3>
-                <p className="text-sm text-[#8B7D6B]">
-                  Scroll through the article for comprehensive coverage of this
-                  topic.
-                </p>
-              </div>
+              {/* Table of Contents */}
+              <TableOfContents content={article.content} />
 
               {/* Ad Placeholder */}
               <AdPlaceholder format="rectangle" />
 
               {/* Categories Widget */}
-              <div className="bg-white rounded-2xl border border-[#E8DDD0] p-6">
-                <h3 className="text-lg font-bold text-[#2D1810] mb-4">
+              <div className="bg-white rounded-2xl border border-border p-6">
+                <h3 className="text-lg font-bold text-text mb-4">
                   Explore Topics
                 </h3>
                 <div className="flex flex-col gap-2">
@@ -237,7 +241,7 @@ export default async function BlogPostPage({
                     <Link
                       key={cat}
                       href={`/blog?category=${cat}`}
-                      className="text-[#5C4033] hover:text-[#8B6914] transition-colors text-sm"
+                      className="text-primary hover:text-secondary transition-colors text-sm"
                     >
                       → {cat}
                     </Link>

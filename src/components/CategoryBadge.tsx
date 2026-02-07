@@ -6,12 +6,12 @@ interface CategoryBadgeProps {
 }
 
 const categoryStyles: Record<string, { bg: string; text: string }> = {
-  lapidary: { bg: "bg-[#6B8E23]", text: "text-white" },
-  gemstones: { bg: "bg-[#8B6914]", text: "text-white" },
-  geology: { bg: "bg-[#5C4033]", text: "text-[#F5E6D3]" },
+  lapidary: { bg: "bg-accent", text: "text-white" },
+  gemstones: { bg: "bg-secondary", text: "text-white" },
+  geology: { bg: "bg-primary", text: "text-cream" },
 };
 
-const defaultStyle = { bg: "bg-[#D2B48C]", text: "text-[#2D1810]" };
+const defaultStyle = { bg: "bg-light", text: "text-text" };
 
 export default function CategoryBadge({ category, size = "sm" }: CategoryBadgeProps) {
   const style = categoryStyles[category.toLowerCase()] || defaultStyle;

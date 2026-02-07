@@ -4,20 +4,26 @@ import matter from "gray-matter";
 
 const contentDirectory = path.join(process.cwd(), "content/blog");
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface ArticleMeta {
   slug: string;
   title: string;
   excerpt: string;
   category: string;
-  coverImage: string;
   author: string;
   authorBio: string;
   publishDate: string;
+  lastModified: string;
   readTime: string;
   tags: string[];
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
+  faq: FAQItem[];
 }
 
 export interface Article extends ArticleMeta {
@@ -52,15 +58,16 @@ export function getArticleBySlug(slug: string): Article | undefined {
     title: data.title,
     excerpt: data.excerpt,
     category: data.category,
-    coverImage: data.coverImage || "",
     author: data.author,
     authorBio: data.authorBio,
     publishDate: data.publishDate,
+    lastModified: data.lastModified || data.publishDate,
     readTime: data.readTime,
     tags: data.tags || [],
     metaTitle: data.metaTitle,
     metaDescription: data.metaDescription,
     keywords: data.keywords || [],
+    faq: data.faq || [],
     content,
   };
 }

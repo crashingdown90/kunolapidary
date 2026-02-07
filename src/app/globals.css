@@ -2,11 +2,14 @@
 
 :root {
   --color-primary: #5C4033;
+  --color-primary-hover: #4A3328;
   --color-secondary: #8B6914;
+  --color-secondary-hover: #A07D1A;
   --color-accent: #6B8E23;
   --color-light: #D2B48C;
   --color-cream: #F5E6D3;
   --color-text: #2D1810;
+  --color-text-soft: #3D2E24;
   --color-bg: #FDFBF7;
   --color-white: #FFFFFF;
   --color-border: #E8DDD0;
@@ -15,11 +18,14 @@
 
 @theme inline {
   --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
   --color-secondary: var(--color-secondary);
+  --color-secondary-hover: var(--color-secondary-hover);
   --color-accent: var(--color-accent);
   --color-light: var(--color-light);
   --color-cream: var(--color-cream);
   --color-text: var(--color-text);
+  --color-text-soft: var(--color-text-soft);
   --color-bg: var(--color-bg);
   --color-border: var(--color-border);
   --color-muted: var(--color-muted);

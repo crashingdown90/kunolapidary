@@ -5,18 +5,21 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Kuno Lapidary",
   description:
     "Read the Kuno Lapidary privacy policy. Learn how we collect, use, and protect your personal information when you visit kunolapidary.com.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="min-h-screen bg-[#FDFBF7]">
+    <main className="min-h-screen bg-bg">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-[#5C4033] to-[#5C4033]/90 px-6 py-16 text-center text-white md:py-20">
+      <section className="bg-gradient-to-b from-primary to-primary/90 px-6 py-16 text-center text-white md:py-20">
         <div className="mx-auto max-w-4xl">
           <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
             Privacy Policy
           </h1>
-          <p className="text-lg text-[#D2B48C]">
+          <p className="text-lg text-light">
             Your privacy is important to us.
           </p>
         </div>
@@ -31,8 +34,8 @@ export default function PrivacyPolicyPage() {
           ]}
         />
 
-        <div className="prose-custom space-y-10 text-[#2D1810]">
-          <p className="text-sm text-[#2D1810]/60">
+        <div className="prose-custom space-y-10 text-text">
+          <p className="text-sm text-text/60">
             <strong>Last Updated:</strong> February 1, 2026
           </p>
 
@@ -41,7 +44,7 @@ export default function PrivacyPolicyPage() {
             operates the website{" "}
             <a
               href="https://kunolapidary.com"
-              className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+              className="text-secondary underline hover:text-secondary/80"
             >
               kunolapidary.com
             </a>{" "}
@@ -54,7 +57,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Information We Collect */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               1. Information We Collect
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -62,7 +65,7 @@ export default function PrivacyPolicyPage() {
               information we may collect on the Site includes:
             </p>
 
-            <h3 className="mb-2 mt-6 text-xl font-semibold text-[#5C4033]">
+            <h3 className="mb-2 mt-6 text-xl font-semibold text-primary">
               Personal Data
             </h3>
             <p className="mb-4 leading-relaxed">
@@ -72,7 +75,7 @@ export default function PrivacyPolicyPage() {
               otherwise interact with the Site.
             </p>
 
-            <h3 className="mb-2 mt-6 text-xl font-semibold text-[#5C4033]">
+            <h3 className="mb-2 mt-6 text-xl font-semibold text-primary">
               Derivative Data
             </h3>
             <p className="mb-4 leading-relaxed">
@@ -83,7 +86,7 @@ export default function PrivacyPolicyPage() {
               analytics purposes and to improve the user experience.
             </p>
 
-            <h3 className="mb-2 mt-6 text-xl font-semibold text-[#5C4033]">
+            <h3 className="mb-2 mt-6 text-xl font-semibold text-primary">
               Data from Cookies and Similar Technologies
             </h3>
             <p className="leading-relaxed">
@@ -97,7 +100,7 @@ export default function PrivacyPolicyPage() {
 
           {/* How We Use Your Information */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               2. How We Use Your Information
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -137,7 +140,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Cookies and Tracking Technologies */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               3. Cookies and Tracking Technologies
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -148,7 +151,7 @@ export default function PrivacyPolicyPage() {
               Site are popular, and count visits.
             </p>
 
-            <h3 className="mb-2 mt-6 text-xl font-semibold text-[#5C4033]">
+            <h3 className="mb-2 mt-6 text-xl font-semibold text-primary">
               Google AdSense
             </h3>
             <p className="mb-4 leading-relaxed">
@@ -161,7 +164,7 @@ export default function PrivacyPolicyPage() {
               visiting{" "}
               <a
                 href="https://www.google.com/settings/ads"
-                className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+                className="text-secondary underline hover:text-secondary/80"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -170,7 +173,7 @@ export default function PrivacyPolicyPage() {
               .
             </p>
 
-            <h3 className="mb-2 mt-6 text-xl font-semibold text-[#5C4033]">
+            <h3 className="mb-2 mt-6 text-xl font-semibold text-primary">
               Google Analytics
             </h3>
             <p className="mb-4 leading-relaxed">
@@ -185,7 +188,7 @@ export default function PrivacyPolicyPage() {
               Google uses data by visiting{" "}
               <a
                 href="https://policies.google.com/privacy"
-                className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+                className="text-secondary underline hover:text-secondary/80"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -205,7 +208,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Third-Party Services */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               4. Third-Party Services
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -227,7 +230,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Data Security */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               5. Data Security
             </h2>
             <p className="leading-relaxed">
@@ -246,7 +249,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Children's Privacy */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               6. Children&apos;s Privacy
             </h2>
             <p className="leading-relaxed">
@@ -259,7 +262,7 @@ export default function PrivacyPolicyPage() {
               us at{" "}
               <a
                 href="mailto:hello@kunolapidary.com"
-                className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+                className="text-secondary underline hover:text-secondary/80"
               >
                 hello@kunolapidary.com
               </a>
@@ -269,7 +272,7 @@ export default function PrivacyPolicyPage() {
 
           {/* Changes to This Privacy Policy */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               7. Changes to This Privacy Policy
             </h2>
             <p className="leading-relaxed">
@@ -289,20 +292,20 @@ export default function PrivacyPolicyPage() {
 
           {/* Contact Information */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               8. Contact Information
             </h2>
             <p className="leading-relaxed">
               If you have questions or comments about this Privacy Policy,
               please contact us at:
             </p>
-            <div className="mt-4 rounded-lg border border-[#D2B48C]/30 bg-[#F5E6D3]/20 p-6">
-              <p className="font-semibold text-[#5C4033]">Kuno Lapidary</p>
+            <div className="mt-4 rounded-lg border border-light/30 bg-cream/20 p-6">
+              <p className="font-semibold text-primary">Kuno Lapidary</p>
               <p className="mt-1">
                 Email:{" "}
                 <a
                   href="mailto:hello@kunolapidary.com"
-                  className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+                  className="text-secondary underline hover:text-secondary/80"
                 >
                   hello@kunolapidary.com
                 </a>
@@ -311,7 +314,7 @@ export default function PrivacyPolicyPage() {
                 Website:{" "}
                 <a
                   href="https://kunolapidary.com"
-                  className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+                  className="text-secondary underline hover:text-secondary/80"
                 >
                   kunolapidary.com
                 </a>

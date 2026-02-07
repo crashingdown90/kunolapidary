@@ -14,24 +14,24 @@ export default function Home() {
       description:
         "Master the art of cutting, shaping, and polishing stones into beautiful gems.",
       icon: "💎",
-      color: "bg-[#6B8E23]/10 border-[#6B8E23]/30",
-      textColor: "text-[#6B8E23]",
+      color: "bg-accent/10 border-accent/30",
+      textColor: "text-accent",
     },
     {
       name: "Gemstones",
       description:
         "Discover the world's most precious and semi-precious gemstones and their properties.",
       icon: "🔮",
-      color: "bg-[#8B6914]/10 border-[#8B6914]/30",
-      textColor: "text-[#8B6914]",
+      color: "bg-secondary/10 border-secondary/30",
+      textColor: "text-secondary",
     },
     {
       name: "Geology",
       description:
         "Explore Earth's geological wonders, from rock formations to mineral deposits.",
       icon: "🌍",
-      color: "bg-[#5C4033]/10 border-[#5C4033]/30",
-      textColor: "text-[#5C4033]",
+      color: "bg-primary/10 border-primary/30",
+      textColor: "text-primary",
     },
   ];
 
@@ -51,19 +51,19 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#F5E6D3] via-[#FDFBF7] to-[#F5E6D3]">
+      <section className="relative overflow-hidden bg-gradient-to-br from-cream via-bg to-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block px-4 py-1.5 bg-[#6B8E23]/10 text-[#6B8E23] text-sm font-medium rounded-full mb-6">
+              <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-6">
                 Welcome to Kuno Lapidary
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#2D1810] leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-tight mb-6">
                 Unearthing Nature&apos;s{" "}
-                <span className="text-[#8B6914]">Brilliance</span>, One Stone
+                <span className="text-secondary">Brilliance</span>, One Stone
                 at a Time
               </h1>
-              <p className="text-lg text-[#8B7D6B] mb-8 leading-relaxed">
+              <p className="text-lg text-muted mb-8 leading-relaxed">
                 Your trusted guide to the fascinating world of lapidary arts,
                 gemstones, and geology. Expert articles, comprehensive guides,
                 and in-depth insights for enthusiasts at every level.
@@ -71,7 +71,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/blog"
-                  className="inline-flex items-center px-8 py-3.5 bg-[#5C4033] text-white font-medium rounded-lg hover:bg-[#4A3328] transition-colors duration-300"
+                  className="inline-flex items-center px-8 py-3.5 bg-primary text-white font-medium rounded-lg hover:bg-primary-hover transition-colors duration-300"
                 >
                   Explore Articles
                   <svg
@@ -90,7 +90,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/about"
-                  className="inline-flex items-center px-8 py-3.5 border-2 border-[#5C4033] text-[#5C4033] font-medium rounded-lg hover:bg-[#5C4033] hover:text-white transition-colors duration-300"
+                  className="inline-flex items-center px-8 py-3.5 border-2 border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-colors duration-300"
                 >
                   About Us
                 </Link>
@@ -111,20 +111,20 @@ export default function Home() {
           >
             <path
               d="M0 60V30C240 0 480 0 720 30C960 60 1200 60 1440 30V60H0Z"
-              fill="#FDFBF7"
+              className="fill-bg"
             />
           </svg>
         </div>
       </section>
 
       {/* Categories Section */}
-      <section className="py-16 md:py-20 bg-[#FDFBF7]">
+      <section className="py-16 md:py-20 bg-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#2D1810] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
               Explore Our Topics
             </h2>
-            <p className="text-[#8B7D6B] text-lg max-w-2xl mx-auto">
+            <p className="text-muted text-lg max-w-2xl mx-auto">
               Dive deep into the earth sciences with our carefully curated
               content across three core disciplines.
             </p>
@@ -140,7 +140,7 @@ export default function Home() {
                 <h3 className={`text-xl font-bold ${cat.textColor} mb-3`}>
                   {cat.name}
                 </h3>
-                <p className="text-[#8B7D6B] leading-relaxed">
+                <p className="text-muted leading-relaxed">
                   {cat.description}
                 </p>
               </Link>
@@ -155,20 +155,20 @@ export default function Home() {
       </div>
 
       {/* Latest Articles Section */}
-      <section className="py-16 md:py-20 bg-[#FDFBF7]">
+      <section className="py-16 md:py-20 bg-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-14">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#2D1810] mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
                 Latest Articles
               </h2>
-              <p className="text-[#8B7D6B] text-lg">
+              <p className="text-muted text-lg">
                 Fresh insights from the world beneath our feet.
               </p>
             </div>
             <Link
               href="/blog"
-              className="hidden md:inline-flex items-center text-[#5C4033] font-medium hover:text-[#8B6914] transition-colors"
+              className="hidden md:inline-flex items-center text-primary font-medium hover:text-secondary transition-colors"
             >
               View All Articles
               <svg
@@ -194,7 +194,7 @@ export default function Home() {
           <div className="mt-10 text-center md:hidden">
             <Link
               href="/blog"
-              className="inline-flex items-center px-6 py-3 bg-[#5C4033] text-white font-medium rounded-lg hover:bg-[#4A3328] transition-colors"
+              className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary-hover transition-colors"
             >
               View All Articles
             </Link>
@@ -203,10 +203,10 @@ export default function Home() {
       </section>
 
       {/* Why Read Kuno Lapidary Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-[#F5E6D3] to-[#FDFBF7]">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-cream to-bg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-[#2D1810] mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
               Why Read Kuno Lapidary?
             </h2>
           </div>
@@ -251,15 +251,15 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="text-center p-6 rounded-2xl bg-white/80 border border-[#E8DDD0]"
+                className="text-center p-6 rounded-2xl bg-white/80 border border-border"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-[#F5E6D3] text-[#5C4033] rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-14 h-14 bg-cream text-primary rounded-xl mb-4">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-bold text-[#2D1810] mb-2">
+                <h3 className="text-lg font-bold text-text mb-2">
                   {item.title}
                 </h3>
-                <p className="text-[#8B7D6B] text-sm leading-relaxed">
+                <p className="text-muted text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>
