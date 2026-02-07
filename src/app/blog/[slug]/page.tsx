@@ -47,14 +47,6 @@ export async function generateMetadata({
       publishedTime: article.publishDate,
       authors: [article.author],
       tags: article.tags,
-      images: [
-        {
-          url: article.coverImage,
-          width: 1200,
-          height: 630,
-          alt: article.title,
-        },
-      ],
     },
     twitter: {
       card: "summary_large_image",

@@ -40,21 +40,12 @@ export const metadata: Metadata = {
     title: "Kuno Lapidary - Unearthing Nature's Brilliance, One Stone at a Time",
     description:
       "Explore the fascinating world of lapidary arts, gemstones, and geology. Expert guides, in-depth articles, and geological insights for enthusiasts and professionals.",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Kuno Lapidary - Gemstones, Geology & Lapidary Arts",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Kuno Lapidary - Unearthing Nature's Brilliance",
     description:
       "Explore the fascinating world of lapidary arts, gemstones, and geology.",
-    images: ["/og-image.png"],
   },
   robots: {
     index: true,
