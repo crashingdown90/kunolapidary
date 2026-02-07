@@ -42,7 +42,7 @@ export async function generateMetadata({
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,
-      url: `https://kunolapidary.com/blog/${article.slug}`,
+      url: `https://www.kunolapidary.com/blog/${article.slug}`,
       type: "article",
       publishedTime: article.publishDate,
       authors: [article.author],

@@ -2,7 +2,7 @@ export const SITE_CONFIG = {
   name: 'Kuno Lapidary',
   tagline: "Unearthing Nature's Brilliance, One Stone at a Time",
   description: 'Explore the fascinating world of lapidary arts, gemstones, and geology. Expert guides, in-depth articles, and geological insights for enthusiasts and professionals.',
-  url: 'https://kunolapidary.com',
+  url: 'https://www.kunolapidary.com',
   email: 'hello@kunolapidary.com',
   author: 'Kuno Lapidary Team',
   locale: 'en_US',

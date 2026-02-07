@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kunolapidary.com"),
+  metadataBase: new URL("https://www.kunolapidary.com"),
   title: {
     default: "Kuno Lapidary - Unearthing Nature's Brilliance, One Stone at a Time",
     template: "%s | Kuno Lapidary",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://kunolapidary.com",
+    url: "https://www.kunolapidary.com",
     siteName: "Kuno Lapidary",
     title: "Kuno Lapidary - Unearthing Nature's Brilliance, One Stone at a Time",
     description:
@@ -71,9 +71,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="canonical" href="https://kunolapidary.com" />
-      </head>
+      <head />
       <body className="antialiased">
         <Header />
         <main className="min-h-screen">{children}</main>
