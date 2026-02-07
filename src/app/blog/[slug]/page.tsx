@@ -1,7 +1,9 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { articles, getArticleBySlug } from "@/data/articles";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { getAllArticles, getArticleBySlug, getAllSlugs } from "@/lib/mdx";
+import { mdxComponents } from "@/components/mdx/MDXComponents";
 import Breadcrumb from "@/components/Breadcrumb";
 import CategoryBadge from "@/components/CategoryBadge";
 import AdPlaceholder from "@/components/AdPlaceholder";
@@ -17,9 +19,7 @@ const heroComponents: Record<string, React.ComponentType<{ className?: string }>
 };
 
 export async function generateStaticParams() {
-  return articles.map((article) => ({
-    slug: article.slug,
-  }));
+  return getAllSlugs().map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
@@ -77,7 +77,8 @@ export default async function BlogPostPage({
   }
 
   const HeroComponent = heroComponents[article.slug];
-  const relatedArticles = articles
+  const allArticles = getAllArticles();
+  const relatedArticles = allArticles
     .filter((a) => a.slug !== article.slug)
     .slice(0, 2);
 
@@ -146,10 +147,9 @@ export default async function BlogPostPage({
             <AdPlaceholder format="article" className="mb-8" />
 
             {/* Article Body */}
-            <div
-              className="article-content max-w-none"
-              dangerouslySetInnerHTML={{ __html: article.content }}
-            />
+            <div className="article-content max-w-none">
+              <MDXRemote source={article.content} components={mdxComponents} />
+            </div>
 
             {/* Tags */}
             <div className="mt-10 pt-8 border-t-2 border-[#F5E6D3]">

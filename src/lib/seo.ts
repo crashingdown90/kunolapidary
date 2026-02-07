@@ -1,5 +1,5 @@
 import { SITE_CONFIG } from '@/lib/constants'
-import type { Article } from '@/data/articles'
+import type { Article } from '@/lib/mdx'
 
 interface BreadcrumbItem {
   name: string
