@@ -1,28 +1,20 @@
 import Link from "next/link";
 import CategoryBadge from "@/components/CategoryBadge";
-import LapidaryGuideHero from "@/components/illustrations/LapidaryGuideHero";
-import GemstonesHero from "@/components/illustrations/GemstonesHero";
-import RockFormationHero from "@/components/illustrations/RockFormationHero";
+import { articleIllustrations } from "@/lib/illustrations";
 import type { Article } from "@/data/articles";
 
-const coverComponents: Record<string, React.ComponentType<{ className?: string }>> = {
-  "beginners-guide-to-lapidary": LapidaryGuideHero,
-  "most-valuable-gemstones-in-the-world": GemstonesHero,
-  "understanding-rock-formation-geological-journey": RockFormationHero,
-};
-
 export default function ArticleCard({ article }: { article: Article }) {
-  const CoverComponent = coverComponents[article.slug];
+  const CoverComponent = articleIllustrations[article.slug];
 
   return (
-    <article className="group overflow-hidden rounded-xl border border-[#D2B48C]/30 bg-[#F5E6D3]/40 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <article className="group overflow-hidden rounded-xl border border-light/30 bg-cream/40 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       {/* Cover Image Area */}
       <Link href={`/blog/${article.slug}`} className="block">
-        <div className="relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-[#F5E6D3] to-[#E8DDD0] flex items-center justify-center p-4">
+        <div className="relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-cream to-border flex items-center justify-center p-4">
           {CoverComponent ? (
             <CoverComponent className="w-full h-full object-contain" />
           ) : (
-            <div className="text-[#D2B48C] text-sm">No image</div>
+            <div className="text-light text-sm">No image</div>
           )}
         </div>
       </Link>
@@ -38,18 +30,18 @@ export default function ArticleCard({ article }: { article: Article }) {
 
         {/* Title */}
         <Link href={`/blog/${article.slug}`}>
-          <h2 className="text-lg font-semibold leading-snug text-[#2D1810] transition-colors duration-200 group-hover:text-[#5C4033]">
+          <h2 className="text-lg font-semibold leading-snug text-text transition-colors duration-200 group-hover:text-primary">
             {article.title}
           </h2>
         </Link>
 
         {/* Excerpt */}
-        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[#5C4033]/70">
+        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-primary/70">
           {article.excerpt}
         </p>
 
         {/* Meta: Date and Read Time */}
-        <div className="mt-4 flex items-center gap-3 text-xs text-[#5C4033]/50">
+        <div className="mt-4 flex items-center gap-3 text-xs text-primary/50">
           {article.publishDate && (
             <time dateTime={article.publishDate} className="flex items-center gap-1">
               <svg
@@ -73,7 +65,7 @@ export default function ArticleCard({ article }: { article: Article }) {
             </time>
           )}
           {article.publishDate && article.readTime && (
-            <span className="text-[#D2B48C]">·</span>
+            <span className="text-light">·</span>
           )}
           {article.readTime && (
             <span className="flex items-center gap-1">

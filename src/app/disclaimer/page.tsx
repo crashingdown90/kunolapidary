@@ -9,14 +9,14 @@ export const metadata: Metadata = {
 
 export default function DisclaimerPage() {
   return (
-    <main className="min-h-screen bg-[#FDFBF7]">
+    <main className="min-h-screen bg-bg">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-[#5C4033] to-[#5C4033]/90 px-6 py-16 text-center text-white md:py-20">
+      <section className="bg-gradient-to-b from-primary to-primary/90 px-6 py-16 text-center text-white md:py-20">
         <div className="mx-auto max-w-4xl">
           <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
             Disclaimer
           </h1>
-          <p className="text-lg text-[#D2B48C]">
+          <p className="text-lg text-light">
             Important information about the content on this website.
           </p>
         </div>
@@ -31,8 +31,8 @@ export default function DisclaimerPage() {
           ]}
         />
 
-        <div className="space-y-10 text-[#2D1810]">
-          <p className="text-sm text-[#2D1810]/60">
+        <div className="space-y-10 text-text">
+          <p className="text-sm text-text/60">
             <strong>Last Updated:</strong> February 1, 2026
           </p>
 
@@ -40,7 +40,7 @@ export default function DisclaimerPage() {
             The information provided on{" "}
             <a
               href="https://kunolapidary.com"
-              className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+              className="text-secondary underline hover:text-secondary/80"
             >
               kunolapidary.com
             </a>{" "}
@@ -52,7 +52,7 @@ export default function DisclaimerPage() {
 
           {/* General Disclaimer */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               1. General Disclaimer
             </h2>
             <p className="leading-relaxed">
@@ -70,7 +70,7 @@ export default function DisclaimerPage() {
 
           {/* Professional Advice Disclaimer */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               2. Professional Advice Disclaimer
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -119,7 +119,7 @@ export default function DisclaimerPage() {
 
           {/* Affiliate and Advertising Disclaimer */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               3. Affiliate and Advertising Disclaimer
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -129,7 +129,7 @@ export default function DisclaimerPage() {
               services through our Site.
             </p>
 
-            <h3 className="mb-2 mt-6 text-xl font-semibold text-[#5C4033]">
+            <h3 className="mb-2 mt-6 text-xl font-semibold text-primary">
               Google AdSense
             </h3>
             <p className="mb-4 leading-relaxed">
@@ -143,7 +143,7 @@ export default function DisclaimerPage() {
               Kuno Lapidary of the products or services advertised.
             </p>
 
-            <h3 className="mb-2 mt-6 text-xl font-semibold text-[#5C4033]">
+            <h3 className="mb-2 mt-6 text-xl font-semibold text-primary">
               Affiliate Links
             </h3>
             <p className="leading-relaxed">
@@ -158,7 +158,7 @@ export default function DisclaimerPage() {
 
           {/* Accuracy of Information */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               4. Accuracy of Information
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -179,7 +179,7 @@ export default function DisclaimerPage() {
 
           {/* External Links */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               5. External Links
             </h2>
             <p className="leading-relaxed">
@@ -199,7 +199,7 @@ export default function DisclaimerPage() {
 
           {/* Fair Use */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               6. Fair Use
             </h2>
             <p className="leading-relaxed">
@@ -220,20 +220,20 @@ export default function DisclaimerPage() {
 
           {/* Contact */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               7. Contact
             </h2>
             <p className="leading-relaxed">
               If you have any questions or concerns about this Disclaimer,
               please contact us:
             </p>
-            <div className="mt-4 rounded-lg border border-[#D2B48C]/30 bg-[#F5E6D3]/20 p-6">
-              <p className="font-semibold text-[#5C4033]">Kuno Lapidary</p>
+            <div className="mt-4 rounded-lg border border-light/30 bg-cream/20 p-6">
+              <p className="font-semibold text-primary">Kuno Lapidary</p>
               <p className="mt-1">
                 Email:{" "}
                 <a
                   href="mailto:hello@kunolapidary.com"
-                  className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+                  className="text-secondary underline hover:text-secondary/80"
                 >
                   hello@kunolapidary.com
                 </a>
@@ -242,7 +242,7 @@ export default function DisclaimerPage() {
                 Website:{" "}
                 <a
                   href="https://kunolapidary.com"
-                  className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+                  className="text-secondary underline hover:text-secondary/80"
                 >
                   kunolapidary.com
                 </a>

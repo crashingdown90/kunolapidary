@@ -46,7 +46,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-shadow duration-300 bg-[#FDFBF7] ${
+      className={`sticky top-0 z-50 w-full transition-shadow duration-300 bg-bg ${
         scrolled ? "shadow-md" : "shadow-none"
       }`}
     >
@@ -64,8 +64,8 @@ export default function Header() {
                 href={link.href}
                 className={`rounded-md px-4 py-2 text-sm font-medium transition-colors duration-200 ${
                   isActive(link.href)
-                    ? "bg-[#5C4033] text-[#F5E6D3]"
-                    : "text-[#2D1810] hover:bg-[#D2B48C]/30 hover:text-[#5C4033]"
+                    ? "bg-primary text-cream"
+                    : "text-text hover:bg-light/30 hover:text-primary"
                 }`}
               >
                 {link.label}
@@ -77,7 +77,7 @@ export default function Header() {
         {/* Mobile Hamburger Button */}
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-[#2D1810] hover:bg-[#D2B48C]/30 md:hidden"
+          className="inline-flex items-center justify-center rounded-md p-2 text-text hover:bg-light/30 md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-expanded={mobileMenuOpen}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
@@ -113,15 +113,15 @@ export default function Header() {
 
       {/* Mobile Slide-in Drawer */}
       <div
-        className={`fixed right-0 top-0 z-50 h-full w-72 transform bg-[#FDFBF7] shadow-xl transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed right-0 top-0 z-50 h-full w-72 transform bg-bg shadow-xl transition-transform duration-300 ease-in-out md:hidden ${
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="flex items-center justify-between border-b border-[#D2B48C]/40 px-4 py-3">
-          <span className="text-lg font-semibold text-[#5C4033]">Menu</span>
+        <div className="flex items-center justify-between border-b border-light/40 px-4 py-3">
+          <span className="text-lg font-semibold text-primary">Menu</span>
           <button
             type="button"
-            className="rounded-md p-2 text-[#2D1810] hover:bg-[#D2B48C]/30"
+            className="rounded-md p-2 text-text hover:bg-light/30"
             onClick={() => setMobileMenuOpen(false)}
             aria-label="Close menu"
           >
@@ -137,8 +137,8 @@ export default function Header() {
                 href={link.href}
                 className={`block rounded-md px-4 py-3 text-base font-medium transition-colors duration-200 ${
                   isActive(link.href)
-                    ? "bg-[#5C4033] text-[#F5E6D3]"
-                    : "text-[#2D1810] hover:bg-[#D2B48C]/30 hover:text-[#5C4033]"
+                    ? "bg-primary text-cream"
+                    : "text-text hover:bg-light/30 hover:text-primary"
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >

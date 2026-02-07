@@ -33,7 +33,7 @@ export default async function BlogPage({
   return (
     <>
       {/* Breadcrumb */}
-      <div className="bg-[#F5E6D3]/50">
+      <div className="bg-cream/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Breadcrumb
             items={[
@@ -45,12 +45,12 @@ export default async function BlogPage({
       </div>
 
       {/* Page Header */}
-      <section className="bg-gradient-to-b from-[#F5E6D3]/50 to-[#FDFBF7] py-12 md:py-16">
+      <section className="bg-gradient-to-b from-cream/50 to-bg py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#2D1810] mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text mb-4">
             {selectedCategory ? `${selectedCategory} Articles` : "All Articles"}
           </h1>
-          <p className="text-lg text-[#8B7D6B] max-w-2xl">
+          <p className="text-lg text-muted max-w-2xl">
             {selectedCategory
               ? `Explore our curated collection of ${selectedCategory.toLowerCase()} articles and guides.`
               : "Discover expert guides, in-depth articles, and educational content about lapidary arts, gemstones, and geology."}
@@ -68,8 +68,8 @@ export default async function BlogPage({
                 href="/blog"
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   !selectedCategory
-                    ? "bg-[#5C4033] text-white"
-                    : "bg-[#F5E6D3] text-[#5C4033] hover:bg-[#E8DDD0]"
+                    ? "bg-primary text-white"
+                    : "bg-cream text-primary hover:bg-border"
                 }`}
               >
                 All
@@ -80,8 +80,8 @@ export default async function BlogPage({
                   href={`/blog?category=${cat}`}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     selectedCategory === cat
-                      ? "bg-[#5C4033] text-white"
-                      : "bg-[#F5E6D3] text-[#5C4033] hover:bg-[#E8DDD0]"
+                      ? "bg-primary text-white"
+                      : "bg-cream text-primary hover:bg-border"
                   }`}
                 >
                   {cat}
@@ -98,7 +98,7 @@ export default async function BlogPage({
               </div>
             ) : (
               <div className="text-center py-20">
-                <p className="text-[#8B7D6B] text-lg">
+                <p className="text-muted text-lg">
                   No articles found in this category yet. Check back soon!
                 </p>
               </div>
@@ -109,8 +109,8 @@ export default async function BlogPage({
           <aside className="lg:col-span-1">
             <div className="sticky top-24 space-y-8">
               {/* Categories Widget */}
-              <div className="bg-white rounded-2xl border border-[#E8DDD0] p-6">
-                <h3 className="text-lg font-bold text-[#2D1810] mb-4">
+              <div className="bg-white rounded-2xl border border-border p-6">
+                <h3 className="text-lg font-bold text-text mb-4">
                   Categories
                 </h3>
                 <ul className="space-y-3">
@@ -122,10 +122,10 @@ export default async function BlogPage({
                       <li key={cat}>
                         <Link
                           href={`/blog?category=${cat}`}
-                          className="flex items-center justify-between text-[#5C4033] hover:text-[#8B6914] transition-colors"
+                          className="flex items-center justify-between text-primary hover:text-secondary transition-colors"
                         >
                           <span>{cat}</span>
-                          <span className="text-xs bg-[#F5E6D3] text-[#8B7D6B] px-2 py-1 rounded-full">
+                          <span className="text-xs bg-cream text-muted px-2 py-1 rounded-full">
                             {count}
                           </span>
                         </Link>
@@ -139,11 +139,11 @@ export default async function BlogPage({
               <AdPlaceholder format="rectangle" />
 
               {/* About Widget */}
-              <div className="bg-white rounded-2xl border border-[#E8DDD0] p-6">
-                <h3 className="text-lg font-bold text-[#2D1810] mb-3">
+              <div className="bg-white rounded-2xl border border-border p-6">
+                <h3 className="text-lg font-bold text-text mb-3">
                   About Kuno Lapidary
                 </h3>
-                <p className="text-sm text-[#8B7D6B] leading-relaxed">
+                <p className="text-sm text-muted leading-relaxed">
                   Your trusted source for lapidary arts, gemstone knowledge, and
                   geological sciences. We bring you expert-written content for
                   enthusiasts at every level.

@@ -1,4 +1,25 @@
 import type { MDXComponents } from "mdx/types";
+import { Children } from "react";
+
+function getTextContent(children: React.ReactNode): string {
+  return Children.toArray(children)
+    .map((child) => {
+      if (typeof child === "string") return child;
+      if (typeof child === "number") return String(child);
+      if (typeof child === "object" && child !== null && "props" in child) {
+        return getTextContent((child as React.ReactElement<{ children?: React.ReactNode }>).props.children);
+      }
+      return "";
+    })
+    .join("");
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, "")
+    .replace(/\s+/g, "-");
+}
 
 function Callout({ type = "info", children }: { type?: "info" | "warning" | "tip"; children: React.ReactNode }) {
   const styles = {
@@ -22,30 +43,37 @@ function Callout({ type = "info", children }: { type?: "info" | "warning" | "tip
 }
 
 export const mdxComponents: MDXComponents = {
-  h2: (props) => (
-    <h2
-      className="mt-10 mb-4 text-2xl font-bold text-[#2D1810] border-b border-[#F5E6D3] pb-2"
-      {...props}
-    />
-  ),
-  h3: (props) => (
-    <h3 className="mt-8 mb-3 text-xl font-semibold text-[#5C4033]" {...props} />
-  ),
+  h2: (props) => {
+    const id = props.id || slugify(getTextContent(props.children));
+    return (
+      <h2
+        id={id}
+        className="mt-10 mb-4 text-2xl font-bold text-text border-b border-cream pb-2 scroll-mt-24"
+        {...props}
+      />
+    );
+  },
+  h3: (props) => {
+    const id = props.id || slugify(getTextContent(props.children));
+    return (
+      <h3 id={id} className="mt-8 mb-3 text-xl font-semibold text-primary scroll-mt-24" {...props} />
+    );
+  },
   p: (props) => (
-    <p className="mb-4 leading-relaxed text-[#3D2E24]" {...props} />
+    <p className="mb-4 leading-relaxed text-text-soft" {...props} />
   ),
   ul: (props) => (
-    <ul className="mb-6 ml-6 list-disc space-y-2 text-[#3D2E24]" {...props} />
+    <ul className="mb-6 ml-6 list-disc space-y-2 text-text-soft" {...props} />
   ),
   ol: (props) => (
-    <ol className="mb-6 ml-6 list-decimal space-y-2 text-[#3D2E24]" {...props} />
+    <ol className="mb-6 ml-6 list-decimal space-y-2 text-text-soft" {...props} />
   ),
   li: (props) => <li className="leading-relaxed" {...props} />,
-  strong: (props) => <strong className="font-semibold text-[#2D1810]" {...props} />,
+  strong: (props) => <strong className="font-semibold text-text" {...props} />,
   em: (props) => <em className="italic" {...props} />,
   a: (props) => (
     <a
-      className="text-[#8B6914] underline decoration-[#D2B48C] underline-offset-2 hover:text-[#5C4033] transition-colors"
+      className="text-secondary underline decoration-light underline-offset-2 hover:text-primary transition-colors"
       target={props.href?.startsWith("http") ? "_blank" : undefined}
       rel={props.href?.startsWith("http") ? "noopener noreferrer" : undefined}
       {...props}
@@ -53,7 +81,7 @@ export const mdxComponents: MDXComponents = {
   ),
   blockquote: (props) => (
     <blockquote
-      className="my-6 border-l-4 border-[#D2B48C] pl-4 italic text-[#5C4033]/80"
+      className="my-6 border-l-4 border-light pl-4 italic text-primary/80"
       {...props}
     />
   ),

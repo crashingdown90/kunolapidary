@@ -37,11 +37,11 @@ export default function AdPlaceholder({ format, className = "" }: AdPlaceholderP
 
   return (
     <aside
-      className={`flex items-center justify-center rounded border border-dashed border-[#D2B48C]/40 bg-[#F5E6D3]/20 ${styles.width} ${styles.height} ${className}`}
+      className={`flex items-center justify-center rounded border border-dashed border-light/40 bg-cream/20 ${styles.width} ${styles.height} ${className}`}
       aria-label="Advertisement"
       role="complementary"
     >
-      <span className="text-[10px] uppercase tracking-wider text-[#D2B48C]/50">
+      <span className="text-[10px] uppercase tracking-wider text-light/50">
         Advertisement
       </span>
     </aside>

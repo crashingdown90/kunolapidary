@@ -9,14 +9,14 @@ export const metadata: Metadata = {
 
 export default function TermsOfServicePage() {
   return (
-    <main className="min-h-screen bg-[#FDFBF7]">
+    <main className="min-h-screen bg-bg">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-[#5C4033] to-[#5C4033]/90 px-6 py-16 text-center text-white md:py-20">
+      <section className="bg-gradient-to-b from-primary to-primary/90 px-6 py-16 text-center text-white md:py-20">
         <div className="mx-auto max-w-4xl">
           <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
             Terms of Service
           </h1>
-          <p className="text-lg text-[#D2B48C]">
+          <p className="text-lg text-light">
             Please read these terms carefully before using our website.
           </p>
         </div>
@@ -31,8 +31,8 @@ export default function TermsOfServicePage() {
           ]}
         />
 
-        <div className="space-y-10 text-[#2D1810]">
-          <p className="text-sm text-[#2D1810]/60">
+        <div className="space-y-10 text-text">
+          <p className="text-sm text-text/60">
             <strong>Last Updated:</strong> February 1, 2026
           </p>
 
@@ -41,7 +41,7 @@ export default function TermsOfServicePage() {
             (&quot;Terms&quot;) govern your use of the website located at{" "}
             <a
               href="https://kunolapidary.com"
-              className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+              className="text-secondary underline hover:text-secondary/80"
             >
               kunolapidary.com
             </a>{" "}
@@ -53,7 +53,7 @@ export default function TermsOfServicePage() {
 
           {/* Acceptance of Terms */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               1. Acceptance of Terms
             </h2>
             <p className="leading-relaxed">
@@ -73,7 +73,7 @@ export default function TermsOfServicePage() {
 
           {/* Use of Website */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               2. Use of Website
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -118,7 +118,7 @@ export default function TermsOfServicePage() {
 
           {/* Intellectual Property */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               3. Intellectual Property
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -144,7 +144,7 @@ export default function TermsOfServicePage() {
 
           {/* User Content */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               4. User Content
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -167,7 +167,7 @@ export default function TermsOfServicePage() {
 
           {/* Disclaimer of Warranties */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               5. Disclaimer of Warranties
             </h2>
             <p className="mb-4 leading-relaxed">
@@ -190,7 +190,7 @@ export default function TermsOfServicePage() {
 
           {/* Limitation of Liability */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               6. Limitation of Liability
             </h2>
             <p className="leading-relaxed">
@@ -212,7 +212,7 @@ export default function TermsOfServicePage() {
 
           {/* Third-Party Links */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               7. Third-Party Links
             </h2>
             <p className="leading-relaxed">
@@ -233,7 +233,7 @@ export default function TermsOfServicePage() {
 
           {/* Advertising */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               8. Advertising
             </h2>
             <p className="leading-relaxed">
@@ -252,7 +252,7 @@ export default function TermsOfServicePage() {
 
           {/* Governing Law */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               9. Governing Law
             </h2>
             <p className="leading-relaxed">
@@ -268,7 +268,7 @@ export default function TermsOfServicePage() {
 
           {/* Changes to Terms */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               10. Changes to Terms
             </h2>
             <p className="leading-relaxed">
@@ -287,20 +287,20 @@ export default function TermsOfServicePage() {
 
           {/* Contact */}
           <section>
-            <h2 className="mb-4 text-2xl font-bold text-[#5C4033]">
+            <h2 className="mb-4 text-2xl font-bold text-primary">
               11. Contact
             </h2>
             <p className="leading-relaxed">
               If you have any questions about these Terms of Service, please
               contact us:
             </p>
-            <div className="mt-4 rounded-lg border border-[#D2B48C]/30 bg-[#F5E6D3]/20 p-6">
-              <p className="font-semibold text-[#5C4033]">Kuno Lapidary</p>
+            <div className="mt-4 rounded-lg border border-light/30 bg-cream/20 p-6">
+              <p className="font-semibold text-primary">Kuno Lapidary</p>
               <p className="mt-1">
                 Email:{" "}
                 <a
                   href="mailto:hello@kunolapidary.com"
-                  className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+                  className="text-secondary underline hover:text-secondary/80"
                 >
                   hello@kunolapidary.com
                 </a>
@@ -309,7 +309,7 @@ export default function TermsOfServicePage() {
                 Website:{" "}
                 <a
                   href="https://kunolapidary.com"
-                  className="text-[#8B6914] underline hover:text-[#8B6914]/80"
+                  className="text-secondary underline hover:text-secondary/80"
                 >
                   kunolapidary.com
                 </a>
