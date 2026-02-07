@@ -14,7 +14,12 @@ export default function ArticleCard({ article }: { article: Article }) {
           {CoverComponent ? (
             <CoverComponent className="w-full h-full object-contain" />
           ) : (
-            <div className="text-light text-sm">No image</div>
+            <svg viewBox="0 0 800 450" className="w-full h-full opacity-30">
+              <rect width="800" height="450" fill="currentColor" opacity="0.05" />
+              <polygon points="400,120 460,240 340,240" fill="currentColor" opacity="0.15" />
+              <polygon points="400,160 430,220 370,220" fill="currentColor" opacity="0.1" />
+              <circle cx="400" cy="300" r="40" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.12" />
+            </svg>
           )}
         </div>
       </Link>

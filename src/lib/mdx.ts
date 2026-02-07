@@ -14,7 +14,6 @@ export interface ArticleMeta {
   title: string;
   excerpt: string;
   category: string;
-  coverImage: string;
   author: string;
   authorBio: string;
   publishDate: string;
@@ -59,7 +58,6 @@ export function getArticleBySlug(slug: string): Article | undefined {
     title: data.title,
     excerpt: data.excerpt,
     category: data.category,
-    coverImage: data.coverImage || "",
     author: data.author,
     authorBio: data.authorBio,
     publishDate: data.publishDate,
