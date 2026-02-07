@@ -20,7 +20,7 @@ export default function CategoryBadge({ category, size = "sm" }: CategoryBadgePr
 
   return (
     <Link
-      href={`/blog?category=${encodeURIComponent(category.toLowerCase())}`}
+      href={`/blog?category=${encodeURIComponent(category)}`}
       className={`inline-block rounded-full font-medium transition-opacity duration-200 hover:opacity-85 ${style.bg} ${style.text} ${sizeClasses}`}
     >
       {category}

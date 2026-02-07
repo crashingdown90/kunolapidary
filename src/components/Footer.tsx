@@ -9,9 +9,9 @@ const quickLinks = [
 ];
 
 const categories = [
-  { href: "/blog?category=lapidary", label: "Lapidary" },
-  { href: "/blog?category=gemstones", label: "Gemstones" },
-  { href: "/blog?category=geology", label: "Geology" },
+  { href: "/blog?category=Lapidary", label: "Lapidary" },
+  { href: "/blog?category=Gemstones", label: "Gemstones" },
+  { href: "/blog?category=Geology", label: "Geology" },
 ];
 
 const legalLinks = [

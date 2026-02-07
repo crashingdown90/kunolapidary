@@ -178,7 +178,7 @@ const Logo: React.FC<LogoProps> = ({ className, size = "md" }) => {
         letterSpacing="3"
         opacity="0.7"
       >
-        GEMS &middot; GEOLOGY &middot; CRAFT
+        GEMS · GEOLOGY · CRAFT
       </text>
     </svg>
   );
