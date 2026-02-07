@@ -31,6 +31,8 @@ export function generateArticleJsonLd(article: Article) {
     image: {
       '@type': 'ImageObject',
       url: `${SITE_CONFIG.url}/blog/${article.slug}/opengraph-image`,
+      width: 1200,
+      height: 630,
     },
     articleSection: article.category,
     keywords: article.keywords.join(', '),

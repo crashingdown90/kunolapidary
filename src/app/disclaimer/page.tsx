@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Disclaimer | Kuno Lapidary",
   description:
     "Read the disclaimer for Kuno Lapidary. Understand the limitations of the information provided on kunolapidary.com regarding lapidary arts, gemstones, and geology.",
+  alternates: {
+    canonical: "/disclaimer",
+  },
 };
 
 export default function DisclaimerPage() {

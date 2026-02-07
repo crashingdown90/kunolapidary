@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Kuno Lapidary",
   description:
     "Read the Kuno Lapidary privacy policy. Learn how we collect, use, and protect your personal information when you visit kunolapidary.com.",
+  alternates: {
+    canonical: "/privacy-policy",
+  },
 };
 
 export default function PrivacyPolicyPage() {
