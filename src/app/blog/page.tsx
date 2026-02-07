@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { articles, getAllCategories } from "@/data/articles";
+import { getAllArticles, getAllCategories } from "@/lib/mdx";
+
 import ArticleCard from "@/components/ArticleCard";
 import Breadcrumb from "@/components/Breadcrumb";
 import AdPlaceholder from "@/components/AdPlaceholder";
@@ -27,6 +28,7 @@ export default async function BlogPage({
 }) {
   const params = await searchParams;
   const selectedCategory = params.category || "";
+  const articles = getAllArticles();
   const categories = getAllCategories();
 
   const filteredArticles = selectedCategory

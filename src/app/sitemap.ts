@@ -1,9 +1,10 @@
 import type { MetadataRoute } from 'next'
-import { articles } from '@/data/articles'
+import { getAllArticles } from '@/lib/mdx'
 import { SITE_CONFIG } from '@/lib/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = SITE_CONFIG.url
+  const articles = getAllArticles()
 
   const staticPages: MetadataRoute.Sitemap = [
     {

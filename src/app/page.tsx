@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { articles } from "@/data/articles";
+import { getAllArticles } from "@/lib/mdx";
+
 import ArticleCard from "@/components/ArticleCard";
 import HeroIllustration from "@/components/illustrations/HeroIllustration";
 import AdPlaceholder from "@/components/AdPlaceholder";
@@ -7,6 +8,7 @@ import Newsletter from "@/components/Newsletter";
 import { generateWebsiteJsonLd, generateOrganizationJsonLd } from "@/lib/seo";
 
 export default function Home() {
+  const articles = getAllArticles();
   const featuredArticles = articles.slice(0, 3);
   const categories = [
     {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import CategoryBadge from "@/components/CategoryBadge";
 import { articleIllustrations } from "@/lib/illustrations";
-import type { Article } from "@/data/articles";
+import type { Article } from "@/lib/mdx";
 
 export default function ArticleCard({ article }: { article: Article }) {
   const CoverComponent = articleIllustrations[article.slug];

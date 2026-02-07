@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kuno Lapidary
+
+Unearthing Nature's Brilliance, One Stone at a Time.
+
+A blog website about lapidary arts, gemstones, and geology — featuring expert guides, in-depth articles, and geological insights for enthusiasts at all skill levels.
+
+**Live site:** [kunolapidary.com](https://kunolapidary.com)
+
+## Tech Stack
+
+- [Next.js 16](https://nextjs.org/) with App Router
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS 4](https://tailwindcss.com/)
+- [MDX](https://mdxjs.com/) for blog content
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+├── content/blog/       # MDX blog articles (15 articles)
+├── src/
+│   ├── app/            # Next.js App Router pages
+│   ├── components/     # React components & SVG illustrations
+│   └── lib/            # Utilities (MDX parser, SEO, constants)
+├── public/             # Static assets
+└── package.json
+```
 
-## Learn More
+## Content
 
-To learn more about Next.js, take a look at the following resources:
+Blog articles are written in MDX and stored in `content/blog/`. Each article includes frontmatter metadata for title, category, tags, SEO fields, and FAQ structured data.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Categories: **Lapidary**, **Gemstones**, **Geology**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Scripts
 
-## Deploy on Vercel
+| Command         | Description              |
+| --------------- | ------------------------ |
+| `npm run dev`   | Start development server |
+| `npm run build` | Build for production     |
+| `npm run start` | Start production server  |
+| `npm run lint`  | Run ESLint               |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All rights reserved.
