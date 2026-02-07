@@ -7,10 +7,11 @@ import { mdxComponents } from "@/components/mdx/MDXComponents";
 import Breadcrumb from "@/components/Breadcrumb";
 import CategoryBadge from "@/components/CategoryBadge";
 import AdPlaceholder from "@/components/AdPlaceholder";
-import { generateArticleJsonLd } from "@/lib/seo";
+import { generateArticleJsonLd, generateFAQJsonLd } from "@/lib/seo";
 import { articleIllustrations } from "@/lib/illustrations";
 import TableOfContents from "@/components/TableOfContents";
 import MDXErrorBoundary from "@/components/MDXErrorBoundary";
+import FAQSection from "@/components/FAQSection";
 
 export async function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -74,6 +75,7 @@ export default async function BlogPostPage({
     : [...sameCategoryArticles, ...otherArticles.filter((a) => a.category !== article.category)].slice(0, 2);
 
   const jsonLd = generateArticleJsonLd(article);
+  const faqJsonLd = article.faq.length > 0 ? generateFAQJsonLd(article.faq) : null;
 
   return (
     <>
@@ -81,6 +83,12 @@ export default async function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+        />
+      )}
 
       {/* Breadcrumb */}
       <div className="bg-cream/50">
@@ -143,6 +151,9 @@ export default async function BlogPostPage({
               <MDXRemote source={article.content} components={mdxComponents} />
             </div>
             </MDXErrorBoundary>
+
+            {/* FAQ Section */}
+            <FAQSection items={article.faq} />
 
             {/* Tags */}
             <div className="mt-10 pt-8 border-t-2 border-cream">

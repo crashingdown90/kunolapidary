@@ -4,6 +4,11 @@ import matter from "gray-matter";
 
 const contentDirectory = path.join(process.cwd(), "content/blog");
 
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
 export interface ArticleMeta {
   slug: string;
   title: string;
@@ -19,6 +24,7 @@ export interface ArticleMeta {
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
+  faq: FAQItem[];
 }
 
 export interface Article extends ArticleMeta {
@@ -63,6 +69,7 @@ export function getArticleBySlug(slug: string): Article | undefined {
     metaTitle: data.metaTitle,
     metaDescription: data.metaDescription,
     keywords: data.keywords || [],
+    faq: data.faq || [],
     content,
   };
 }

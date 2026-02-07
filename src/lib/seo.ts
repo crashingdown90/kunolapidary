@@ -1,5 +1,5 @@
 import { SITE_CONFIG } from '@/lib/constants'
-import type { Article } from '@/lib/mdx'
+import type { Article, FAQItem } from '@/lib/mdx'
 
 interface BreadcrumbItem {
   name: string
@@ -60,6 +60,21 @@ export function generateWebsiteJsonLd() {
     description: SITE_CONFIG.description,
     url: SITE_CONFIG.url,
     inLanguage: 'en-US',
+  }
+}
+
+export function generateFAQJsonLd(faq: FAQItem[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
   }
 }
 
