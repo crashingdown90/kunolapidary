@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Terms of Service | Kuno Lapidary",
   description:
     "Read the Terms of Service for Kuno Lapidary. Understand the rules and regulations governing the use of kunolapidary.com and its content.",
+  alternates: {
+    canonical: "https://kunolapidary.com/terms-of-service",
+  },
 };
 
 export default function TermsOfServicePage() {

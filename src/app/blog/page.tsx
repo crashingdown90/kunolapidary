@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Blog - Lapidary, Gemstones & Geology Articles",
   description:
     "Browse our collection of expert articles on lapidary arts, gemstone identification, geological sciences, and more. Free educational content for all skill levels.",
+  alternates: {
+    canonical: "https://kunolapidary.com/blog",
+  },
   openGraph: {
     title: "Blog - Lapidary, Gemstones & Geology Articles | Kuno Lapidary",
     description:

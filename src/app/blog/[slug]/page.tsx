@@ -39,6 +39,9 @@ export async function generateMetadata({
     description: article.metaDescription,
     keywords: article.keywords,
     authors: [{ name: article.author }],
+    alternates: {
+      canonical: `https://kunolapidary.com/blog/${article.slug}`,
+    },
     openGraph: {
       title: article.metaTitle,
       description: article.metaDescription,

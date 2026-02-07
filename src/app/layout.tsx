@@ -58,6 +58,12 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://kunolapidary.com",
+    types: {
+      "application/rss+xml": "https://kunolapidary.com/feed.xml",
+    },
+  },
   verification: {
     // Add your Google Search Console verification code here
     // google: "your-verification-code",
@@ -71,9 +77,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="canonical" href="https://kunolapidary.com" />
-      </head>
+      <head />
       <body className="antialiased">
         <Header />
         <main className="min-h-screen">{children}</main>

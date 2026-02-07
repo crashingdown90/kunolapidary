@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "About Us | Kuno Lapidary",
   description:
     "Learn about Kuno Lapidary — a passionate online publication dedicated to lapidary arts, gemstones, and geological sciences. Discover our mission to educate and inspire rock and gem enthusiasts worldwide.",
+  alternates: {
+    canonical: "https://kunolapidary.com/about",
+  },
 };
 
 export default function AboutPage() {
