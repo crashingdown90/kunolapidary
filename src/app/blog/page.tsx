@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import { articles, getAllCategories } from "@/data/articles";
 import ArticleCard from "@/components/ArticleCard";
 import Breadcrumb from "@/components/Breadcrumb";
@@ -63,7 +64,7 @@ export default async function BlogPage({
           <div className="lg:col-span-3">
             {/* Category Filter */}
             <div className="flex flex-wrap gap-3 mb-10">
-              <a
+              <Link
                 href="/blog"
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                   !selectedCategory
@@ -72,9 +73,9 @@ export default async function BlogPage({
                 }`}
               >
                 All
-              </a>
+              </Link>
               {categories.map((cat) => (
-                <a
+                <Link
                   key={cat}
                   href={`/blog?category=${cat}`}
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
@@ -84,7 +85,7 @@ export default async function BlogPage({
                   }`}
                 >
                   {cat}
-                </a>
+                </Link>
               ))}
             </div>
 
@@ -119,7 +120,7 @@ export default async function BlogPage({
                     ).length;
                     return (
                       <li key={cat}>
-                        <a
+                        <Link
                           href={`/blog?category=${cat}`}
                           className="flex items-center justify-between text-[#5C4033] hover:text-[#8B6914] transition-colors"
                         >
@@ -127,7 +128,7 @@ export default async function BlogPage({
                           <span className="text-xs bg-[#F5E6D3] text-[#8B7D6B] px-2 py-1 rounded-full">
                             {count}
                           </span>
-                        </a>
+                        </Link>
                       </li>
                     );
                   })}

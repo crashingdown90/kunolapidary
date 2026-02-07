@@ -13,6 +13,7 @@ export interface ArticleMeta {
   author: string;
   authorBio: string;
   publishDate: string;
+  lastModified: string;
   readTime: string;
   tags: string[];
   metaTitle: string;
@@ -56,6 +57,7 @@ export function getArticleBySlug(slug: string): Article | undefined {
     author: data.author,
     authorBio: data.authorBio,
     publishDate: data.publishDate,
+    lastModified: data.lastModified || data.publishDate,
     readTime: data.readTime,
     tags: data.tags || [],
     metaTitle: data.metaTitle,

@@ -1,24 +1,10 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
+import { FOOTER_LINKS } from "@/lib/constants";
 
-const quickLinks = [
-  { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
-
-const categories = [
-  { href: "/blog?category=Lapidary", label: "Lapidary" },
-  { href: "/blog?category=Gemstones", label: "Gemstones" },
-  { href: "/blog?category=Geology", label: "Geology" },
-];
-
-const legalLinks = [
-  { href: "/privacy-policy", label: "Privacy Policy" },
-  { href: "/terms-of-service", label: "Terms of Service" },
-  { href: "/disclaimer", label: "Disclaimer" },
-];
+const quickLinks = FOOTER_LINKS.quickLinks;
+const categories = FOOTER_LINKS.categories;
+const legalLinks = FOOTER_LINKS.legal;
 
 export default function Footer() {
   return (

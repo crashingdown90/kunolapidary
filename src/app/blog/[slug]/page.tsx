@@ -70,9 +70,11 @@ export default async function BlogPostPage({
 
   const HeroComponent = heroComponents[article.slug];
   const allArticles = getAllArticles();
-  const relatedArticles = allArticles
-    .filter((a) => a.slug !== article.slug)
-    .slice(0, 2);
+  const otherArticles = allArticles.filter((a) => a.slug !== article.slug);
+  const sameCategoryArticles = otherArticles.filter((a) => a.category === article.category);
+  const relatedArticles = sameCategoryArticles.length >= 2
+    ? sameCategoryArticles.slice(0, 2)
+    : [...sameCategoryArticles, ...otherArticles.filter((a) => a.category !== article.category)].slice(0, 2);
 
   const jsonLd = generateArticleJsonLd(article);
 

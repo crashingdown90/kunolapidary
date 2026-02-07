@@ -5,29 +5,27 @@ import { useState, useEffect } from "react";
 const COOKIE_CONSENT_KEY = "kuno-lapidary-cookie-consent";
 
 export default function CookieConsent() {
+  const [shouldRender, setShouldRender] = useState(false);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
     if (consent === null) {
+      setShouldRender(true);
       // Small delay so the banner slides up after page load
       const timer = setTimeout(() => setVisible(true), 500);
       return () => clearTimeout(timer);
     }
   }, []);
 
-  const handleAccept = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, "accepted");
+  const handleDismiss = (choice: "accepted" | "declined") => {
+    localStorage.setItem(COOKIE_CONSENT_KEY, choice);
     setVisible(false);
+    // Wait for the slide-out animation to finish before unmounting
+    setTimeout(() => setShouldRender(false), 500);
   };
 
-  const handleDecline = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, "declined");
-    setVisible(false);
-  };
-
-  // Don't render anything if consent has already been given
-  if (!visible) return null;
+  if (!shouldRender) return null;
 
   return (
     <div
@@ -54,13 +52,13 @@ export default function CookieConsent() {
           </div>
           <div className="flex shrink-0 gap-3">
             <button
-              onClick={handleDecline}
+              onClick={() => handleDismiss("declined")}
               className="rounded-md border border-[#D2B48C]/40 px-5 py-2 text-sm font-medium text-[#D2B48C] transition-colors duration-200 hover:border-[#D2B48C] hover:text-[#F5E6D3]"
             >
               Decline
             </button>
             <button
-              onClick={handleAccept}
+              onClick={() => handleDismiss("accepted")}
               className="rounded-md bg-[#8B6914] px-5 py-2 text-sm font-medium text-[#F5E6D3] transition-colors duration-200 hover:bg-[#A07D1A]"
             >
               Accept

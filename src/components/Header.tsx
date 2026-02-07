@@ -4,13 +4,9 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Logo from "@/components/Logo";
+import { NAV_LINKS } from "@/lib/constants";
 
-const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+const navLinks = NAV_LINKS;
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

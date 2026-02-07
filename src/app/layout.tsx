@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -71,9 +74,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="canonical" href="https://kunolapidary.com" />
-      </head>
       <body className="antialiased">
         <Header />
         <main className="min-h-screen">{children}</main>
