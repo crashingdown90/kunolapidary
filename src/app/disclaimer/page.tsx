@@ -34,8 +34,8 @@ export default function DisclaimerPage() {
           ]}
         />
 
-        <div className="space-y-10 text-text">
-          <p className="text-sm text-text/60">
+        <div className="space-y-10 text-gray-300">
+          <p className="text-sm text-gray-300/60">
             <strong>Last Updated:</strong> February 1, 2026
           </p>
 
@@ -230,7 +230,7 @@ export default function DisclaimerPage() {
               If you have any questions or concerns about this Disclaimer,
               please contact us:
             </p>
-            <div className="mt-4 rounded-lg border border-light/30 bg-cream/20 p-6">
+            <div className="mt-4 rounded-lg border border-white/10 bg-white/5 p-6">
               <p className="font-semibold text-primary">Kuno Lapidary</p>
               <p className="mt-1">
                 Email:{" "}

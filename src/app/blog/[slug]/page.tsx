@@ -118,7 +118,7 @@ export default async function BlogPostPage({
                   <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold">
                     KL
                   </div>
-                  <span className="font-medium text-text">
+                  <span className="font-medium text-gray-300">
                     {article.author}
                   </span>
                 </div>
