@@ -11,10 +11,14 @@ export default function CookieConsent() {
   useEffect(() => {
     const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
     if (consent === null) {
-      setShouldRender(true);
+      // Defer state update to avoid synchronous cascading render
+      const renderTimer = setTimeout(() => setShouldRender(true), 0);
       // Small delay so the banner slides up after page load
-      const timer = setTimeout(() => setVisible(true), 500);
-      return () => clearTimeout(timer);
+      const visibleTimer = setTimeout(() => setVisible(true), 500);
+      return () => {
+        clearTimeout(renderTimer);
+        clearTimeout(visibleTimer);
+      };
     }
   }, []);
 

@@ -24,7 +24,8 @@ export default function Header() {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setMobileMenuOpen(false);
+    const timer = setTimeout(() => setMobileMenuOpen(false), 0);
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   // Prevent body scroll when mobile menu is open
@@ -46,9 +47,8 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-shadow duration-300 bg-bg ${
-        scrolled ? "shadow-md" : "shadow-none"
-      }`}
+      className={`sticky top-0 z-50 w-full transition-shadow duration-300 bg-bg ${scrolled ? "shadow-md" : "shadow-none"
+        }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
@@ -62,11 +62,10 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`rounded-md px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-                  isActive(link.href)
+                className={`rounded-md px-4 py-2 text-sm font-medium transition-colors duration-200 ${isActive(link.href)
                     ? "bg-primary text-cream"
                     : "text-text hover:bg-light/30 hover:text-primary"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
@@ -113,9 +112,8 @@ export default function Header() {
 
       {/* Mobile Slide-in Drawer */}
       <div
-        className={`fixed right-0 top-0 z-50 h-full w-72 transform bg-bg shadow-xl transition-transform duration-300 ease-in-out md:hidden ${
-          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed right-0 top-0 z-50 h-full w-72 transform bg-bg shadow-xl transition-transform duration-300 ease-in-out md:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <div className="flex items-center justify-between border-b border-light/40 px-4 py-3">
           <span className="text-lg font-semibold text-primary">Menu</span>
@@ -135,11 +133,10 @@ export default function Header() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`block rounded-md px-4 py-3 text-base font-medium transition-colors duration-200 ${
-                  isActive(link.href)
+                className={`block rounded-md px-4 py-3 text-base font-medium transition-colors duration-200 ${isActive(link.href)
                     ? "bg-primary text-cream"
                     : "text-text hover:bg-light/30 hover:text-primary"
-                }`}
+                  }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.label}

@@ -23,9 +23,9 @@ function slugify(text: string): string {
 
 function Callout({ type = "info", children }: { type?: "info" | "warning" | "tip"; children: React.ReactNode }) {
   const styles = {
-    info: "bg-blue-50 border-blue-300 text-blue-900",
-    warning: "bg-amber-50 border-amber-300 text-amber-900",
-    tip: "bg-emerald-50 border-emerald-300 text-emerald-900",
+    info: "glass border-blue-500/30 text-blue-200 shadow-[0_0_15px_rgba(59,130,246,0.1)]",
+    warning: "glass border-amber-500/30 text-amber-200 shadow-[0_0_15px_rgba(245,158,11,0.1)]",
+    tip: "glass border-teal-500/30 text-teal-200 shadow-[0_0_15px_rgba(20,184,166,0.1)]",
   };
 
   const icons = {
@@ -35,9 +35,9 @@ function Callout({ type = "info", children }: { type?: "info" | "warning" | "tip
   };
 
   return (
-    <div className={`my-6 rounded-lg border-l-4 p-4 ${styles[type]}`}>
-      <span className="mr-2">{icons[type]}</span>
-      {children}
+    <div className={`my-6 rounded-xl border-l-4 p-5 ${styles[type]}`}>
+      <span className="mr-3 text-lg">{icons[type]}</span>
+      <span className="leading-relaxed opacity-90">{children}</span>
     </div>
   );
 }
@@ -48,7 +48,7 @@ export const mdxComponents: MDXComponents = {
     return (
       <h2
         id={id}
-        className="mt-10 mb-4 text-2xl font-bold text-text border-b border-cream pb-2 scroll-mt-24"
+        className="mt-12 mb-5 text-3xl font-bold bg-gradient-to-r from-teal-300 to-purple-400 bg-clip-text text-transparent border-b border-white/10 pb-3 scroll-mt-24"
         {...props}
       />
     );
@@ -56,24 +56,24 @@ export const mdxComponents: MDXComponents = {
   h3: (props) => {
     const id = props.id || slugify(getTextContent(props.children));
     return (
-      <h3 id={id} className="mt-8 mb-3 text-xl font-semibold text-primary scroll-mt-24" {...props} />
+      <h3 id={id} className="mt-8 mb-3 text-2xl font-semibold text-teal-400 scroll-mt-24" {...props} />
     );
   },
   p: (props) => (
-    <p className="mb-4 leading-relaxed text-text-soft" {...props} />
+    <p className="mb-5 leading-relaxed text-gray-300 text-lg" {...props} />
   ),
   ul: (props) => (
-    <ul className="mb-6 ml-6 list-disc space-y-2 text-text-soft" {...props} />
+    <ul className="mb-6 ml-6 list-disc space-y-3 text-gray-300 text-lg marker:text-teal-500" {...props} />
   ),
   ol: (props) => (
-    <ol className="mb-6 ml-6 list-decimal space-y-2 text-text-soft" {...props} />
+    <ol className="mb-6 ml-6 list-decimal space-y-3 text-gray-300 text-lg marker:text-teal-500 font-medium" {...props} />
   ),
-  li: (props) => <li className="leading-relaxed" {...props} />,
-  strong: (props) => <strong className="font-semibold text-text" {...props} />,
-  em: (props) => <em className="italic" {...props} />,
+  li: (props) => <li className="leading-relaxed pl-2" {...props} />,
+  strong: (props) => <strong className="font-bold text-teal-100" {...props} />,
+  em: (props) => <em className="italic text-purple-200" {...props} />,
   a: (props) => (
     <a
-      className="text-secondary underline decoration-light underline-offset-2 hover:text-primary transition-colors"
+      className="text-teal-400 underline decoration-teal-400/30 underline-offset-4 hover:text-teal-300 transition-colors"
       target={props.href?.startsWith("http") ? "_blank" : undefined}
       rel={props.href?.startsWith("http") ? "noopener noreferrer" : undefined}
       {...props}
@@ -81,9 +81,14 @@ export const mdxComponents: MDXComponents = {
   ),
   blockquote: (props) => (
     <blockquote
-      className="my-6 border-l-4 border-light pl-4 italic text-primary/80"
+      className="my-8 border-l-4 border-purple-500/50 pl-6 py-2 italic text-purple-200 bg-white/5 rounded-r-xl"
       {...props}
     />
+  ),
+  img: (props) => (
+    <span className="block my-8 overflow-hidden rounded-2xl border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+      <img className="w-full object-cover h-auto hover:scale-105 transition-transform duration-700" {...props} alt={props.alt || "Article graphic"} />
+    </span>
   ),
   Callout,
 };

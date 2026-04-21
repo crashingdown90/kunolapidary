@@ -11,27 +11,45 @@ export default function Home() {
   const categories = [
     {
       name: "Lapidary",
-      description:
-        "Master the art of cutting, shaping, and polishing stones into beautiful gems.",
-      icon: "💎",
-      color: "bg-accent/10 border-accent/30",
-      textColor: "text-accent",
+      description: "Master the art of cutting, shaping, and polishing stones into beautiful gems.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M2 12l5.25 5 2.625-7.5L12 2l2.125 7.5L16.75 17l5.25-5" />
+          <path d="M12 2v20" />
+          <path d="M7.25 17l4.75 5 4.75-5" />
+        </svg>
+      ),
+      color: "bg-primary/10 border-primary/20",
+      textColor: "text-primary",
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(20,184,166,0.3)]",
     },
     {
       name: "Gemstones",
-      description:
-        "Discover the world's most precious and semi-precious gemstones and their properties.",
-      icon: "🔮",
-      color: "bg-secondary/10 border-secondary/30",
+      description: "Discover the world's most precious and semi-precious gemstones and their properties.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2" />
+          <polyline points="2 17 12 22 22 17" />
+          <polyline points="2 12 12 17 22 12" />
+        </svg>
+      ),
+      color: "bg-secondary/10 border-secondary/20",
       textColor: "text-secondary",
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]",
     },
     {
       name: "Geology",
-      description:
-        "Explore Earth's geological wonders, from rock formations to mineral deposits.",
-      icon: "🌍",
-      color: "bg-primary/10 border-primary/30",
-      textColor: "text-primary",
+      description: "Explore Earth's geological wonders, from rock formations to mineral deposits.",
+      icon: (
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2L2 19h20L12 2z" />
+          <path d="M12 2v17" />
+          <path d="M9 14l3 3 3-3" />
+        </svg>
+      ),
+      color: "bg-accent/10 border-accent/20",
+      textColor: "text-accent",
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(245,158,11,0.3)]",
     },
   ];
 
@@ -51,19 +69,24 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-cream via-bg to-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <section className="relative overflow-hidden bg-bg">
+        {/* Glow Effects */}
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-primary/20 blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-secondary/20 blur-[120px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-medium rounded-full mb-6">
+              <span className="inline-flex items-center px-4 py-1.5 bg-primary/10 border border-primary/30 text-primary text-sm font-medium rounded-full mb-6 backdrop-blur-sm shadow-[0_0_15px_rgba(20,184,166,0.2)]">
+                <span className="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse" />
                 Welcome to Kuno Lapidary
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text leading-tight mb-6">
-                Unearthing Nature&apos;s{" "}
-                <span className="text-secondary">Brilliance</span>, One Stone
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-text leading-tight mb-6 tracking-tight">
+                Unearthing Nature&apos;s <br />
+                <span className="text-gradient">Brilliance</span>, One Stone
                 at a Time
               </h1>
-              <p className="text-lg text-muted mb-8 leading-relaxed">
+              <p className="text-lg md:text-xl text-text-soft mb-10 leading-relaxed font-light">
                 Your trusted guide to the fascinating world of lapidary arts,
                 gemstones, and geology. Expert articles, comprehensive guides,
                 and in-depth insights for enthusiasts at every level.
@@ -71,11 +94,11 @@ export default function Home() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/blog"
-                  className="inline-flex items-center px-8 py-3.5 bg-primary text-white font-medium rounded-lg hover:bg-primary-hover transition-colors duration-300"
+                  className="inline-flex items-center px-8 py-3.5 bg-primary text-bg font-semibold rounded-lg hover:bg-primary-hover transition-all duration-300 shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)] transform hover:-translate-y-1"
                 >
                   Explore Articles
                   <svg
-                    className="ml-2 w-4 h-4"
+                    className="ml-2 w-5 h-5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -90,41 +113,27 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/about"
-                  className="inline-flex items-center px-8 py-3.5 border-2 border-primary text-primary font-medium rounded-lg hover:bg-primary hover:text-white transition-colors duration-300"
+                  className="glass inline-flex items-center px-8 py-3.5 text-text font-medium rounded-lg hover:bg-cream hover:text-primary transition-all duration-300 border border-border"
                 >
                   About Us
                 </Link>
               </div>
             </div>
-            <div className="hidden md:block">
-              <HeroIllustration className="w-full h-auto" />
+            <div className="hidden md:flex justify-end perspective-1000">
+              <HeroIllustration className="w-full h-auto max-w-lg transform hover:scale-105 transition-transform duration-700 ease-out drop-shadow-[0_0_40px_rgba(139,92,246,0.2)]" />
             </div>
           </div>
-        </div>
-        {/* Decorative bottom wave */}
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg
-            viewBox="0 0 1440 60"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full"
-          >
-            <path
-              d="M0 60V30C240 0 480 0 720 30C960 60 1200 60 1440 30V60H0Z"
-              className="fill-bg"
-            />
-          </svg>
         </div>
       </section>
 
       {/* Categories Section */}
-      <section className="py-16 md:py-20 bg-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
+      <section className="py-20 md:py-28 relative border-t border-border bg-gradient-to-b from-bg to-cream/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-text mb-6">
               Explore Our Topics
             </h2>
-            <p className="text-muted text-lg max-w-2xl mx-auto">
+            <p className="text-muted text-lg max-w-2xl mx-auto font-light">
               Dive deep into the earth sciences with our carefully curated
               content across three core disciplines.
             </p>
@@ -134,13 +143,15 @@ export default function Home() {
               <Link
                 key={cat.name}
                 href={`/blog?category=${cat.name}`}
-                className={`card-hover block p-8 rounded-2xl border-2 ${cat.color} hover:shadow-lg`}
+                className={`group glass-card block p-10 rounded-3xl border border-border hover:border-transparent transition-all duration-500 transform hover:-translate-y-2 ${cat.glowColor}`}
               >
-                <span className="text-4xl mb-4 block">{cat.icon}</span>
-                <h3 className={`text-xl font-bold ${cat.textColor} mb-3`}>
+                <div className={`inline-flex items-center justify-center p-4 rounded-2xl ${cat.color} ${cat.textColor} mb-6 transition-transform duration-500 group-hover:scale-110`}>
+                  {cat.icon}
+                </div>
+                <h3 className={`text-2xl font-bold ${cat.textColor} mb-4 font-sans`}>
                   {cat.name}
                 </h3>
-                <p className="text-muted leading-relaxed">
+                <p className="text-text-soft leading-relaxed font-light">
                   {cat.description}
                 </p>
               </Link>
@@ -150,25 +161,30 @@ export default function Home() {
       </section>
 
       {/* Ad Placeholder */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <AdPlaceholder format="horizontal" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="glass rounded-2xl overflow-hidden border border-border">
+          <AdPlaceholder format="horizontal" />
+        </div>
       </div>
 
       {/* Latest Articles Section */}
-      <section className="py-16 md:py-20 bg-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-14">
+      <section className="py-20 md:py-28 bg-bg relative">
+        {/* Glow */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[30%] h-[50%] rounded-full bg-accent/5 blur-[100px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
+              <h2 className="text-3xl md:text-5xl font-sans font-bold text-text mb-4">
                 Latest Articles
               </h2>
-              <p className="text-muted text-lg">
+              <p className="text-muted text-lg font-light">
                 Fresh insights from the world beneath our feet.
               </p>
             </div>
             <Link
               href="/blog"
-              className="hidden md:inline-flex items-center text-primary font-medium hover:text-secondary transition-colors"
+              className="hidden md:inline-flex items-center px-6 py-2.5 rounded-full border border-primary/30 text-primary font-medium hover:bg-primary hover:text-bg transition-colors shadow-[0_0_15px_rgba(20,184,166,0.1)] hover:shadow-[0_0_20px_rgba(20,184,166,0.3)]"
             >
               View All Articles
               <svg
@@ -188,13 +204,15 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredArticles.map((article) => (
-              <ArticleCard key={article.slug} article={article} />
+              <div key={article.slug} className="transform transition-all duration-300 hover:-translate-y-2">
+                <ArticleCard article={article} />
+              </div>
             ))}
           </div>
-          <div className="mt-10 text-center md:hidden">
+          <div className="mt-12 text-center md:hidden">
             <Link
               href="/blog"
-              className="inline-flex items-center px-6 py-3 bg-primary text-white font-medium rounded-lg hover:bg-primary-hover transition-colors"
+              className="inline-flex items-center px-8 py-3 bg-primary text-bg font-medium rounded-lg hover:bg-primary-hover transition-colors shadow-[0_0_20px_rgba(20,184,166,0.2)]"
             >
               View All Articles
             </Link>
@@ -203,10 +221,10 @@ export default function Home() {
       </section>
 
       {/* Why Read Kuno Lapidary Section */}
-      <section className="py-16 md:py-20 bg-gradient-to-b from-cream to-bg">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-text mb-4">
+      <section className="py-20 md:py-28 relative border-t border-border bg-gradient-to-b from-cream/20 to-bg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-sans font-bold text-text mb-6">
               Why Read Kuno Lapidary?
             </h2>
           </div>
@@ -251,15 +269,15 @@ export default function Home() {
             ].map((item) => (
               <div
                 key={item.title}
-                className="text-center p-6 rounded-2xl bg-white/80 border border-border"
+                className="glass-card text-center p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-colors duration-300"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-cream text-primary rounded-xl mb-4">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-2xl mb-6 shadow-[0_0_15px_rgba(20,184,166,0.15)]">
                   {item.icon}
                 </div>
-                <h3 className="text-lg font-bold text-text mb-2">
+                <h3 className="text-xl font-bold text-text mb-3 font-sans">
                   {item.title}
                 </h3>
-                <p className="text-muted text-sm leading-relaxed">
+                <p className="text-text-soft text-sm leading-relaxed font-light">
                   {item.desc}
                 </p>
               </div>
@@ -272,8 +290,10 @@ export default function Home() {
       <Newsletter />
 
       {/* Ad Placeholder */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <AdPlaceholder format="horizontal" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="glass rounded-2xl overflow-hidden border border-border">
+          <AdPlaceholder format="horizontal" />
+        </div>
       </div>
     </>
   );
