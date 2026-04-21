@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import CategoryBadge from "@/components/CategoryBadge";
 import { articleIllustrations } from "@/lib/illustrations";
 import type { Article } from "@/data/articles";
@@ -10,9 +11,17 @@ export default function ArticleCard({ article }: { article: Article }) {
     <article className="group overflow-hidden rounded-2xl border border-white/10 glass-card transition-all duration-500 hover:-translate-y-2 hover:border-teal-500/50 hover:shadow-[0_20px_50px_rgba(20,184,166,0.1)]">
       {/* Cover Image Area */}
       <Link href={`/blog/${article.slug}`} className="block">
-        <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#0f172a] border-b border-white/5 flex items-center justify-center p-6">
-          {CoverComponent ? (
-            <CoverComponent className="w-full h-full object-contain" />
+        <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#0f172a] border-b border-white/5 flex items-center justify-center">
+          {article.heroImage ? (
+            <Image
+              src={article.heroImage}
+              alt={article.title}
+              width={800}
+              height={450}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+            />
+          ) : CoverComponent ? (
+            <CoverComponent className="w-full h-full object-contain p-6" />
           ) : (
             <svg viewBox="0 0 800 450" className="w-full h-full opacity-30">
               <rect width="800" height="450" fill="currentColor" opacity="0.05" />

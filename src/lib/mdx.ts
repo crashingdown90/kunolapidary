@@ -24,6 +24,7 @@ export interface ArticleMeta {
   metaDescription: string;
   keywords: string[];
   faq: FAQItem[];
+  heroImage?: string;
 }
 
 export interface Article extends ArticleMeta {
@@ -68,6 +69,7 @@ export function getArticleBySlug(slug: string): Article | undefined {
     metaDescription: data.metaDescription,
     keywords: data.keywords || [],
     faq: data.faq || [],
+    heroImage: data.heroImage || (fs.existsSync(path.join(process.cwd(), `public/images/blog/${slug}.png`)) ? `/images/blog/${slug}.png` : undefined),
     content,
   };
 }

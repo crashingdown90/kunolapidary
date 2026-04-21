@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllArticles, getArticleBySlug, getAllSlugs } from "@/lib/mdx";
 import { mdxComponents } from "@/components/mdx/MDXComponents";
@@ -136,9 +137,20 @@ export default async function BlogPostPage({
             </header>
 
             {/* Hero Image */}
-            {HeroComponent && (
+            {(article.heroImage || HeroComponent) && (
               <div className="rounded-3xl overflow-hidden mb-12 shadow-[0_0_40px_rgba(20,184,166,0.1)] border border-white/10 glass">
-                <HeroComponent className="w-full h-auto max-h-[500px] mx-auto scale-105" />
+                {article.heroImage ? (
+                  <Image
+                    src={article.heroImage}
+                    alt={article.title}
+                    width={1200}
+                    height={600}
+                    className="w-full h-auto max-h-[600px] w-full object-cover"
+                    priority
+                  />
+                ) : HeroComponent && (
+                  <HeroComponent className="w-full h-auto max-h-[500px] mx-auto scale-105" />
+                )}
               </div>
             )}
 
