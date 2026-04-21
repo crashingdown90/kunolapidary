@@ -1,61 +1,42 @@
-import type { MetadataRoute } from 'next'
-import { articles } from '@/data/articles'
-import { SITE_CONFIG } from '@/lib/constants'
+import { MetadataRoute } from "next";
+import { getAllSlugs } from "@/lib/mdx";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = SITE_CONFIG.url
+  const baseUrl = "https://kunolapidary.com";
+  const slugs = getAllSlugs();
 
-  const staticPages: MetadataRoute.Sitemap = [
+  const blogPosts = slugs.map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
+  return [
     {
       url: baseUrl,
       lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 1.0,
+      changeFrequency: "weekly",
+      priority: 1,
     },
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
-      changeFrequency: 'daily',
+      changeFrequency: "daily",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
+      changeFrequency: "monthly",
+      priority: 0.5,
     },
     {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
+      changeFrequency: "monthly",
+      priority: 0.5,
     },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/terms-of-service`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/disclaimer`,
-      lastModified: new Date(),
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-  ]
-
-  const articlePages: MetadataRoute.Sitemap = articles.map((article) => ({
-    url: `${baseUrl}/blog/${article.slug}`,
-    lastModified: new Date(article.lastModified),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }))
-
-  return [...staticPages, ...articlePages]
+    ...blogPosts,
+  ];
 }

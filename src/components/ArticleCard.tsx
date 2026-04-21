@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import CategoryBadge from "@/components/CategoryBadge";
 import { articleIllustrations } from "@/lib/illustrations";
 import type { Article } from "@/data/articles";
@@ -8,99 +11,70 @@ export default function ArticleCard({ article }: { article: Article }) {
   const CoverComponent = articleIllustrations[article.slug];
 
   return (
-    <article className="group overflow-hidden rounded-2xl border border-white/10 glass-card transition-all duration-500 hover:-translate-y-2 hover:border-teal-500/50 hover:shadow-[0_20px_50px_rgba(20,184,166,0.1)]">
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
+      className="group overflow-hidden rounded-[32px] glass-card flex flex-col h-full"
+    >
       {/* Cover Image Area */}
-      <Link href={`/blog/${article.slug}`} className="block">
-        <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#0f172a] border-b border-white/5 flex items-center justify-center">
-          {article.heroImage ? (
-            <Image
-              src={article.heroImage}
-              alt={article.title}
-              width={800}
-              height={450}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-          ) : CoverComponent ? (
-            <CoverComponent className="w-full h-full object-contain p-6" />
-          ) : (
-            <svg viewBox="0 0 800 450" className="w-full h-full opacity-30">
-              <rect width="800" height="450" fill="currentColor" opacity="0.05" />
-              <polygon points="400,120 460,240 340,240" fill="currentColor" opacity="0.15" />
-              <polygon points="400,160 430,220 370,220" fill="currentColor" opacity="0.1" />
-              <circle cx="400" cy="300" r="40" fill="none" stroke="currentColor" strokeWidth="2" opacity="0.12" />
-            </svg>
-          )}
-        </div>
+      <Link href={`/blog/${article.slug}`} className="block relative aspect-[4/3] overflow-hidden">
+        {article.heroImage ? (
+          <Image
+            src={article.heroImage}
+            alt={article.title}
+            fill
+            className="object-cover transition-transform duration-1000 group-hover:scale-110"
+          />
+        ) : CoverComponent ? (
+          <CoverComponent className="w-full h-full object-contain p-8" />
+        ) : (
+          <div className="w-full h-full bg-[#0f172a] opacity-20" />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </Link>
 
       {/* Content */}
-      <div className="p-5">
-        {/* Category Badge */}
-        {article.category && (
-          <div className="mb-3">
+      <div className="p-8 flex flex-col flex-1">
+        {/* Category & Date */}
+        <div className="flex items-center justify-between mb-6">
+          {article.category && (
             <CategoryBadge category={article.category} size="sm" />
-          </div>
-        )}
+          )}
+          <span className="text-[9px] font-bold uppercase tracking-[0.2em] text-gray-500 italic font-serif">
+            {new Date(article.publishDate).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
+          </span>
+        </div>
 
         {/* Title */}
-        <Link href={`/blog/${article.slug}`}>
-          <h2 className="text-xl font-bold leading-snug text-white transition-colors duration-300 group-hover:text-teal-400">
+        <Link href={`/blog/${article.slug}`} className="flex-1">
+          <h2 className="text-2xl font-serif text-white leading-tight mb-4 group-hover:text-teal-400 transition-colors duration-500">
             {article.title}
           </h2>
         </Link>
 
         {/* Excerpt */}
-        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-gray-400">
+        <p className="line-clamp-2 text-sm leading-relaxed text-gray-400 font-light mb-8">
           {article.excerpt}
         </p>
 
-        {/* Meta: Date and Read Time */}
-        <div className="mt-6 flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-gray-500">
-          {article.publishDate && (
-            <time dateTime={article.publishDate} className="flex items-center gap-1">
-              <svg
-                className="h-3.5 w-3.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
-                />
-              </svg>
-              {new Date(article.publishDate).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "short",
-                day: "numeric",
-              })}
-            </time>
-          )}
-          {article.publishDate && article.readTime && (
-            <span className="text-white/20">|</span>
-          )}
-          {article.readTime && (
-            <span className="flex items-center gap-1">
-              <svg
-                className="h-3.5 w-3.5"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              {article.readTime}
-            </span>
-          )}
+        {/* Action & Read Time */}
+        <div className="flex items-center justify-between pt-6 border-t border-white/5">
+          <Link
+            href={`/blog/${article.slug}`}
+            className="text-[10px] font-bold uppercase tracking-widest text-teal-400 flex items-center gap-2 group/btn"
+          >
+            Read Story
+            <svg className="w-3 h-3 transition-transform group-hover/btn:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+          <span className="text-[9px] font-bold text-gray-600 uppercase tracking-tighter">
+            {article.readTime}
+          </span>
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 }

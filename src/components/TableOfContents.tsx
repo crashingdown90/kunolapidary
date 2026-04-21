@@ -27,24 +27,30 @@ export default function TableOfContents({ content }: { content: string }) {
 
   if (headings.length === 0) {
     return (
-      <div className="bg-white rounded-2xl border border-border p-6">
-        <h3 className="text-lg font-bold text-text mb-4">In This Article</h3>
-        <p className="text-sm text-muted">
-          Scroll through the article for comprehensive coverage of this topic.
+      <div className="glass-card rounded-2xl border border-white/10 p-8 shadow-xl">
+        <h3 className="text-xs font-black text-gray-500 mb-4 uppercase tracking-[0.25em]">In This Article</h3>
+        <p className="text-sm text-gray-400 leading-relaxed font-light">
+          Dive deep into the sections below for a comprehensive geological analysis.
         </p>
       </div>
     );
   }
 
   return (
-    <nav className="bg-white rounded-2xl border border-border p-6" aria-label="Table of contents">
-      <h3 className="text-lg font-bold text-text mb-4">In This Article</h3>
-      <ul className="space-y-2">
+    <nav className="glass-card rounded-3xl border border-white/10 p-8 shadow-2xl relative overflow-hidden" aria-label="Table of contents">
+      {/* Decorative Glow */}
+      <div className="absolute top-0 right-0 w-16 h-16 bg-teal-500/5 rounded-full blur-xl -mr-8 -mt-8" />
+
+      <h3 className="text-xs font-black text-gray-500 mb-6 uppercase tracking-[0.25em] flex items-center gap-2">
+        <div className="w-1.5 h-1.5 rounded-full bg-teal-500 shadow-[0_0_8px_rgba(20,184,166,0.5)]" />
+        In This Article
+      </h3>
+      <ul className="space-y-4">
         {headings.map((heading) => (
           <li key={heading.slug} className={heading.level === 3 ? "ml-4" : ""}>
             <a
               href={`#${heading.slug}`}
-              className="text-sm text-primary hover:text-secondary transition-colors leading-snug block py-0.5"
+              className="text-sm text-gray-300 hover:text-teal-400 transition-all duration-300 leading-snug block py-0.5 border-l-2 border-transparent hover:border-teal-500/30 hover:pl-3"
             >
               {heading.text}
             </a>

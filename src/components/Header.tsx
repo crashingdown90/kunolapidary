@@ -3,10 +3,9 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 import Logo from "@/components/Logo";
 import { NAV_LINKS } from "@/lib/constants";
-
-const navLinks = NAV_LINKS;
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -14,31 +13,14 @@ export default function Header() {
   const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
-    const timer = setTimeout(() => setMobileMenuOpen(false), 0);
-    return () => clearTimeout(timer);
+    setMobileMenuOpen(false);
   }, [pathname]);
-
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [mobileMenuOpen]);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -47,106 +29,86 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full transition-all duration-300 border-b ${scrolled
-        ? "bg-bg/80 backdrop-blur-md border-white/5 shadow-2xl"
-        : "bg-transparent border-transparent"
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-700 ${scrolled
+        ? "py-3 bg-bg/70 backdrop-blur-2xl border-b border-white/5 saturate-[1.8]"
+        : "py-5 bg-transparent border-b border-transparent"
         }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-2" aria-label="Kuno Lapidary Home">
-          <Logo />
+      <nav className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
+        {/* Brand */}
+        <Link href="/" className="flex items-center group">
+          <Logo size={scrolled ? "sm" : "md"} />
         </Link>
 
-        {/* Desktop Navigation */}
-        <ul className="hidden items-center gap-1 md:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={`rounded-full px-5 py-2 text-sm font-bold tracking-wide transition-all duration-300 ${isActive(link.href)
-                  ? "bg-teal-500 text-white shadow-[0_0_15px_rgba(20,184,166,0.3)]"
-                  : "text-gray-400 hover:text-white"
-                  }`}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        {/* Desktop Nav */}
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className={`relative text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-300 ${isActive(link.href) ? "text-primary" : "text-gray-400 hover:text-white"
+                    }`}
+                >
+                  {link.label}
+                  {isActive(link.href) && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute -bottom-2 left-0 w-full h-[2px] bg-primary shadow-[0_0_10px_rgba(20,184,166,0.5)]"
+                    />
+                  )}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        {/* Mobile Hamburger Button */}
-        <button
-          type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-text hover:bg-light/30 md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-expanded={mobileMenuOpen}
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-        >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={2}
-            stroke="currentColor"
+          <Link
+            href="/blog"
+            className="px-6 py-2 bg-white/5 border border-white/10 rounded-full text-[10px] font-bold uppercase tracking-widest text-white hover:bg-white/10 transition-all"
           >
-            {mobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            )}
-          </svg>
+            Stay Informed
+          </Link>
+        </div>
+
+        {/* Mobile Toggle */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden text-white p-2"
+          aria-label="Toggle Menu"
+        >
+          <div className="w-6 h-5 relative flex flex-col justify-between">
+            <span className={`w-full h-[1.5px] bg-current transition-all duration-300 ${mobileMenuOpen ? "rotate-45 translate-y-[9px]" : ""}`} />
+            <span className={`w-3/4 h-[1.5px] bg-current transition-opacity duration-300 ${mobileMenuOpen ? "opacity-0" : ""}`} />
+            <span className={`w-full h-[1.5px] bg-current transition-all duration-300 ${mobileMenuOpen ? "-rotate-45 -translate-y-[9px]" : ""}`} />
+          </div>
         </button>
       </nav>
 
-      {/* Mobile Menu Overlay */}
-      {mobileMenuOpen && (
-        <div
-          className="fixed inset-0 top-0 z-40 bg-black/30 md:hidden"
-          onClick={() => setMobileMenuOpen(false)}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Mobile Slide-in Drawer */}
-      <div
-        className={`fixed right-0 top-0 z-50 h-full w-72 transform bg-[#020617]/95 backdrop-blur-xl border-l border-white/10 shadow-2xl transition-transform duration-300 ease-in-out md:hidden ${mobileMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-      >
-        <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
-          <span className="text-lg font-bold text-white uppercase tracking-widest text-xs">Menu</span>
-          <button
-            type="button"
-            className="rounded-md p-2 text-text hover:bg-light/30"
-            onClick={() => setMobileMenuOpen(false)}
-            aria-label="Close menu"
+      {/* Mobile Nav */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="fixed inset-0 top-0 z-[90] bg-bg/95 backdrop-blur-3xl md:hidden overflow-hidden flex flex-col items-center justify-center pt-20"
           >
-            <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
-        <ul className="flex flex-col gap-1 px-3 py-4">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={`block rounded-xl px-4 py-4 text-base font-bold transition-all duration-300 ${isActive(link.href)
-                  ? "bg-teal-500 text-white shadow-[0_0_15px_rgba(20,184,166,0.2)]"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
-                  }`}
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+            <ul className="flex flex-col items-center gap-10">
+              {NAV_LINKS.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className={`text-3xl font-serif italic ${isActive(link.href) ? "text-primary" : "text-white"}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
