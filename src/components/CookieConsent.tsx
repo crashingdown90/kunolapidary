@@ -33,22 +33,22 @@ export default function CookieConsent() {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-[100] transform transition-transform duration-500 ease-out ${
-        visible ? "translate-y-0" : "translate-y-full"
-      }`}
+      className={`fixed bottom-0 left-0 right-0 z-[100] transform transition-transform duration-500 ease-out ${visible ? "translate-y-0" : "translate-y-full"
+        }`}
       role="dialog"
       aria-label="Cookie consent"
     >
-      <div className="border-t border-light/30 bg-text px-4 py-4 shadow-[0_-4px_12px_rgba(0,0,0,0.15)] sm:px-6">
-        <div className="mx-auto flex max-w-7xl flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="border-t border-white/10 bg-[#0f172a]/95 backdrop-blur-xl px-4 py-5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] sm:px-6 relative">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-teal-500/30 to-transparent"></div>
+        <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex-1">
-            <p className="text-sm leading-relaxed text-cream">
+            <p className="text-sm leading-relaxed text-gray-300">
               We use cookies to enhance your experience, serve personalized ads, and analyze site
               traffic. By clicking &quot;Accept,&quot; you consent to our use of cookies for
               advertising and analytics purposes.{" "}
               <a
                 href="/privacy-policy"
-                className="font-medium text-light underline underline-offset-2 transition-colors hover:text-cream"
+                className="font-bold text-teal-400 underline decoration-teal-400/30 underline-offset-4 transition-all hover:text-teal-300"
               >
                 Learn more
               </a>
@@ -57,13 +57,13 @@ export default function CookieConsent() {
           <div className="flex shrink-0 gap-3">
             <button
               onClick={() => handleDismiss("declined")}
-              className="rounded-md border border-light/40 px-5 py-2 text-sm font-medium text-light transition-colors duration-200 hover:border-light hover:text-cream"
+              className="rounded-xl border border-white/10 bg-white/5 px-6 py-2.5 text-sm font-bold text-gray-400 transition-all duration-300 hover:bg-white/10 hover:text-white"
             >
               Decline
             </button>
             <button
               onClick={() => handleDismiss("accepted")}
-              className="rounded-md bg-secondary px-5 py-2 text-sm font-medium text-cream transition-colors duration-200 hover:bg-secondary-hover"
+              className="rounded-xl bg-teal-500 px-8 py-2.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all duration-300 hover:bg-teal-400 hover:scale-105 active:scale-95"
             >
               Accept
             </button>

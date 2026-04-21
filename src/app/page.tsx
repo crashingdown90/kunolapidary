@@ -13,43 +13,43 @@ export default function Home() {
       name: "Lapidary",
       description: "Master the art of cutting, shaping, and polishing stones into beautiful gems.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-teal-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M2 12l5.25 5 2.625-7.5L12 2l2.125 7.5L16.75 17l5.25-5" />
           <path d="M12 2v20" />
           <path d="M7.25 17l4.75 5 4.75-5" />
         </svg>
       ),
-      color: "bg-primary/10 border-primary/20",
-      textColor: "text-primary",
-      glowColor: "group-hover:shadow-[0_0_30px_rgba(20,184,166,0.3)]",
+      color: "bg-teal-500/10 border-teal-500/20",
+      textColor: "text-teal-400",
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(20,184,166,0.2)]",
     },
     {
       name: "Gemstones",
       description: "Discover the world's most precious and semi-precious gemstones and their properties.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polygon points="12 2 2 7 12 12 22 7 12 2" />
           <polyline points="2 17 12 22 22 17" />
           <polyline points="2 12 12 17 22 12" />
         </svg>
       ),
-      color: "bg-secondary/10 border-secondary/20",
-      textColor: "text-secondary",
-      glowColor: "group-hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]",
+      color: "bg-purple-500/10 border-purple-500/20",
+      textColor: "text-purple-400",
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]",
     },
     {
       name: "Geology",
       description: "Explore Earth's geological wonders, from rock formations to mineral deposits.",
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-10 h-10 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 2L2 19h20L12 2z" />
           <path d="M12 2v17" />
           <path d="M9 14l3 3 3-3" />
         </svg>
       ),
-      color: "bg-accent/10 border-accent/20",
-      textColor: "text-accent",
-      glowColor: "group-hover:shadow-[0_0_30px_rgba(245,158,11,0.3)]",
+      color: "bg-blue-500/10 border-blue-500/20",
+      textColor: "text-blue-400",
+      glowColor: "group-hover:shadow-[0_0_30px_rgba(59,130,246,0.2)]",
     },
   ];
 
@@ -81,12 +81,12 @@ export default function Home() {
                 <span className="w-2 h-2 rounded-full bg-primary mr-2 animate-pulse" />
                 Welcome to Kuno Lapidary
               </span>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-text leading-tight mb-6 tracking-tight">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-sans font-bold text-white leading-tight mb-6 tracking-tight">
                 Unearthing Nature&apos;s <br />
                 <span className="text-gradient">Brilliance</span>, One Stone
                 at a Time
               </h1>
-              <p className="text-lg md:text-xl text-text-soft mb-10 leading-relaxed font-light">
+              <p className="text-lg md:text-xl text-gray-400 mb-10 leading-relaxed font-light">
                 Your trusted guide to the fascinating world of lapidary arts,
                 gemstones, and geology. Expert articles, comprehensive guides,
                 and in-depth insights for enthusiasts at every level.
@@ -94,7 +94,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-4">
                 <Link
                   href="/blog"
-                  className="inline-flex items-center px-8 py-3.5 bg-primary text-bg font-semibold rounded-lg hover:bg-primary-hover transition-all duration-300 shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_30px_rgba(20,184,166,0.5)] transform hover:-translate-y-1"
+                  className="inline-flex items-center px-8 py-3.5 bg-teal-500 text-white font-bold rounded-xl shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all duration-300 hover:bg-teal-400 hover:scale-105 active:scale-95"
                 >
                   Explore Articles
                   <svg
@@ -113,7 +113,7 @@ export default function Home() {
                 </Link>
                 <Link
                   href="/about"
-                  className="glass inline-flex items-center px-8 py-3.5 text-text font-medium rounded-lg hover:bg-cream hover:text-primary transition-all duration-300 border border-border"
+                  className="glass-card inline-flex items-center px-8 py-3.5 text-white font-bold rounded-xl border border-white/10 hover:bg-white/5 transition-all duration-300"
                 >
                   About Us
                 </Link>
@@ -127,13 +127,13 @@ export default function Home() {
       </section>
 
       {/* Categories Section */}
-      <section className="py-20 md:py-28 relative border-t border-border bg-gradient-to-b from-bg to-cream/30">
+      <section className="py-24 md:py-32 relative border-t border-white/5 bg-[#020617]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-sans font-bold text-text mb-6">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-6xl font-bold text-white mb-6">
               Explore Our Topics
             </h2>
-            <p className="text-muted text-lg max-w-2xl mx-auto font-light">
+            <p className="text-gray-400 text-xl max-w-2xl mx-auto font-light">
               Dive deep into the earth sciences with our carefully curated
               content across three core disciplines.
             </p>
@@ -148,10 +148,10 @@ export default function Home() {
                 <div className={`inline-flex items-center justify-center p-4 rounded-2xl ${cat.color} ${cat.textColor} mb-6 transition-transform duration-500 group-hover:scale-110`}>
                   {cat.icon}
                 </div>
-                <h3 className={`text-2xl font-bold ${cat.textColor} mb-4 font-sans`}>
+                <h3 className={`text-2xl font-bold ${cat.textColor} mb-4`}>
                   {cat.name}
                 </h3>
-                <p className="text-text-soft leading-relaxed font-light">
+                <p className="text-gray-400 leading-relaxed text-sm">
                   {cat.description}
                 </p>
               </Link>
@@ -175,10 +175,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 gap-6">
             <div>
-              <h2 className="text-3xl md:text-5xl font-sans font-bold text-text mb-4">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
                 Latest Articles
               </h2>
-              <p className="text-muted text-lg font-light">
+              <p className="text-gray-400 text-lg font-light">
                 Fresh insights from the world beneath our feet.
               </p>
             </div>
@@ -221,10 +221,10 @@ export default function Home() {
       </section>
 
       {/* Why Read Kuno Lapidary Section */}
-      <section className="py-20 md:py-28 relative border-t border-border bg-gradient-to-b from-cream/20 to-bg">
+      <section className="py-24 md:py-32 relative border-t border-white/5 bg-[#020617]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-sans font-bold text-text mb-6">
+          <div className="text-center mb-20">
+            <h2 className="text-3xl md:text-6xl font-bold text-white mb-6">
               Why Read Kuno Lapidary?
             </h2>
           </div>
@@ -271,13 +271,13 @@ export default function Home() {
                 key={item.title}
                 className="glass-card text-center p-8 rounded-3xl border border-white/5 hover:border-primary/30 transition-colors duration-300"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 text-primary rounded-2xl mb-6 shadow-[0_0_15px_rgba(20,184,166,0.15)]">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-500/10 text-teal-400 rounded-2xl mb-6 shadow-[0_0_15px_rgba(20,184,166,0.15)] group-hover:scale-110 transition-transform duration-500">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-text mb-3 font-sans">
+                <h3 className="text-xl font-bold text-white mb-3">
                   {item.title}
                 </h3>
-                <p className="text-text-soft text-sm leading-relaxed font-light">
+                <p className="text-gray-400 text-sm leading-relaxed font-light">
                   {item.desc}
                 </p>
               </div>

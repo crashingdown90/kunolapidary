@@ -7,10 +7,10 @@ export default function ArticleCard({ article }: { article: Article }) {
   const CoverComponent = articleIllustrations[article.slug];
 
   return (
-    <article className="group overflow-hidden rounded-xl border border-light/30 bg-cream/40 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <article className="group overflow-hidden rounded-2xl border border-white/10 glass-card transition-all duration-500 hover:-translate-y-2 hover:border-teal-500/50 hover:shadow-[0_20px_50px_rgba(20,184,166,0.1)]">
       {/* Cover Image Area */}
       <Link href={`/blog/${article.slug}`} className="block">
-        <div className="relative aspect-[16/9] w-full overflow-hidden bg-gradient-to-br from-cream to-border flex items-center justify-center p-4">
+        <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#0f172a] border-b border-white/5 flex items-center justify-center p-6">
           {CoverComponent ? (
             <CoverComponent className="w-full h-full object-contain" />
           ) : (
@@ -35,18 +35,18 @@ export default function ArticleCard({ article }: { article: Article }) {
 
         {/* Title */}
         <Link href={`/blog/${article.slug}`}>
-          <h2 className="text-lg font-semibold leading-snug text-text transition-colors duration-200 group-hover:text-primary">
+          <h2 className="text-xl font-bold leading-snug text-white transition-colors duration-300 group-hover:text-teal-400">
             {article.title}
           </h2>
         </Link>
 
         {/* Excerpt */}
-        <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-primary/70">
+        <p className="mt-3 line-clamp-2 text-sm leading-relaxed text-gray-400">
           {article.excerpt}
         </p>
 
         {/* Meta: Date and Read Time */}
-        <div className="mt-4 flex items-center gap-3 text-xs text-primary/50">
+        <div className="mt-6 flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest text-gray-500">
           {article.publishDate && (
             <time dateTime={article.publishDate} className="flex items-center gap-1">
               <svg
@@ -70,7 +70,7 @@ export default function ArticleCard({ article }: { article: Article }) {
             </time>
           )}
           {article.publishDate && article.readTime && (
-            <span className="text-light">·</span>
+            <span className="text-white/20">|</span>
           )}
           {article.readTime && (
             <span className="flex items-center gap-1">

@@ -134,10 +134,10 @@ const Logo: React.FC<LogoProps> = ({ className, size = "md" }) => {
       <text
         x="108"
         y="48"
-        fontFamily="'Georgia', 'Times New Roman', serif"
+        fontFamily="sans-serif"
         fontSize="42"
-        fontWeight="bold"
-        fill="#5C4033"
+        fontWeight="900"
+        fill="white"
         letterSpacing="6"
       >
         KUNO
@@ -147,10 +147,10 @@ const Logo: React.FC<LogoProps> = ({ className, size = "md" }) => {
       <text
         x="108"
         y="78"
-        fontFamily="'Georgia', 'Times New Roman', serif"
+        fontFamily="sans-serif"
         fontSize="22"
-        fontWeight="normal"
-        fill="#8B6914"
+        fontWeight="500"
+        fill="#2dd4bf"
         letterSpacing="8"
       >
         LAPIDARY

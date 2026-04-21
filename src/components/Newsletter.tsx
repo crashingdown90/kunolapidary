@@ -24,19 +24,21 @@ export default function Newsletter() {
   };
 
   return (
-    <section className="bg-primary px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-2xl font-bold text-cream sm:text-3xl">Stay Updated</h2>
-        <p className="mt-3 text-sm leading-relaxed text-light">
+    <section className="bg-[#020617] px-4 py-20 sm:px-6 lg:px-8 relative overflow-hidden border-t border-white/5">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.05)_0,transparent_70%)] pointer-events-none"></div>
+
+      <div className="mx-auto max-w-4xl glass-card border border-white/10 rounded-3xl p-8 md:p-12 text-center relative z-10 shadow-2xl">
+        <h2 className="text-3xl font-bold bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent sm:text-4xl">Join the Inner Circle</h2>
+        <p className="mt-4 text-lg leading-relaxed text-gray-400 max-w-2xl mx-auto">
           Get the latest articles on gemstones, lapidary techniques, and geological discoveries
           delivered straight to your inbox.
         </p>
 
         {status === "success" ? (
-          <div className="mt-6 rounded-lg border border-accent/40 bg-accent/20 px-6 py-4">
-            <p className="font-medium text-cream">
-              Thank you for your interest! Newsletter subscriptions are coming soon.
-              Follow us on social media for updates in the meantime.
+          <div className="mt-8 rounded-2xl border border-teal-500/20 bg-teal-500/10 px-8 py-6">
+            <p className="font-semibold text-teal-300">
+              Welcome to the family! Newsletter subscriptions are being activated soon.
+              Follow us for cosmic updates in the meantime.
             </p>
           </div>
         ) : (
@@ -59,7 +61,7 @@ export default function Newsletter() {
                   }}
                   placeholder="Enter your email"
                   required
-                  className="w-full rounded-md border border-light/30 bg-bg px-4 py-2.5 text-sm text-text placeholder-primary/50 outline-none transition-colors duration-200 focus:border-secondary focus:ring-2 focus:ring-secondary/30"
+                  className="w-full rounded-xl border border-white/10 bg-white/5 px-5 py-3.5 text-sm text-white placeholder-gray-500 outline-none transition-all duration-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
                 />
                 {status === "error" && (
                   <p className="mt-1.5 text-left text-xs text-cream/90">{errorMessage}</p>
@@ -67,13 +69,13 @@ export default function Newsletter() {
               </div>
               <button
                 type="submit"
-                className="shrink-0 rounded-md bg-secondary px-6 py-2.5 text-sm font-medium text-cream transition-colors duration-200 hover:bg-secondary-hover"
+                className="shrink-0 rounded-xl bg-teal-500 px-10 py-3.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all duration-300 hover:bg-teal-400 hover:scale-105 active:scale-95"
               >
-                Subscribe
+                Sign Up
               </button>
             </div>
-            <p className="mt-3 text-xs text-light/60">
-              No spam, ever. Unsubscribe at any time.
+            <p className="mt-4 text-xs text-gray-500 font-medium uppercase tracking-widest">
+              Zero noise. Just pure geological insight.
             </p>
           </form>
         )}

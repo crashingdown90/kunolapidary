@@ -80,7 +80,7 @@ export default function ContactForm() {
             setFormData({ name: "", email: "", subject: "", message: "" });
             setErrors({});
           }}
-          className="rounded-lg bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary/90"
+          className="rounded-xl bg-teal-500 px-10 py-3.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all duration-300 hover:bg-teal-400 hover:scale-105"
         >
           Send Another Message
         </button>
@@ -94,9 +94,9 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="name"
-          className="mb-2 block text-sm font-medium text-primary"
+          className="mb-3 block text-sm font-bold uppercase tracking-widest text-gray-400"
         >
-          Name <span className="text-red-600">*</span>
+          Name <span className="text-teal-400">*</span>
         </label>
         <input
           type="text"
@@ -105,11 +105,10 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((prev) => ({ ...prev, name: e.target.value }))
           }
-          className={`w-full rounded-lg border px-4 py-3 text-text placeholder-text/40 outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20 ${
-            errors.name
-              ? "border-red-400 bg-red-50"
-              : "border-light/50 bg-white"
-          }`}
+          className={`w-full rounded-xl border px-5 py-4 text-white placeholder-gray-600 outline-none transition-all duration-300 focus:ring-4 focus:ring-teal-500/10 ${errors.name
+              ? "border-red-500/50 bg-red-500/5"
+              : "border-white/10 bg-white/5 focus:border-teal-500"
+            }`}
           placeholder="Your full name"
         />
         {errors.name && (
@@ -121,9 +120,9 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="email"
-          className="mb-2 block text-sm font-medium text-primary"
+          className="mb-3 block text-sm font-bold uppercase tracking-widest text-gray-400"
         >
-          Email <span className="text-red-600">*</span>
+          Email <span className="text-teal-400">*</span>
         </label>
         <input
           type="email"
@@ -132,11 +131,10 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((prev) => ({ ...prev, email: e.target.value }))
           }
-          className={`w-full rounded-lg border px-4 py-3 text-text placeholder-text/40 outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20 ${
-            errors.email
-              ? "border-red-400 bg-red-50"
-              : "border-light/50 bg-white"
-          }`}
+          className={`w-full rounded-xl border px-5 py-4 text-white placeholder-gray-600 outline-none transition-all duration-300 focus:ring-4 focus:ring-teal-500/10 ${errors.email
+              ? "border-red-500/50 bg-red-500/5"
+              : "border-white/10 bg-white/5 focus:border-teal-500"
+            }`}
           placeholder="your@email.com"
         />
         {errors.email && (
@@ -148,9 +146,9 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="subject"
-          className="mb-2 block text-sm font-medium text-primary"
+          className="mb-3 block text-sm font-bold uppercase tracking-widest text-gray-400"
         >
-          Subject <span className="text-red-600">*</span>
+          Subject <span className="text-teal-400">*</span>
         </label>
         <input
           type="text"
@@ -159,11 +157,10 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((prev) => ({ ...prev, subject: e.target.value }))
           }
-          className={`w-full rounded-lg border px-4 py-3 text-text placeholder-text/40 outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20 ${
-            errors.subject
-              ? "border-red-400 bg-red-50"
-              : "border-light/50 bg-white"
-          }`}
+          className={`w-full rounded-xl border px-5 py-4 text-white placeholder-gray-600 outline-none transition-all duration-300 focus:ring-4 focus:ring-teal-500/10 ${errors.subject
+              ? "border-red-500/50 bg-red-500/5"
+              : "border-white/10 bg-white/5 focus:border-teal-500"
+            }`}
           placeholder="What is your message about?"
         />
         {errors.subject && (
@@ -175,9 +172,9 @@ export default function ContactForm() {
       <div>
         <label
           htmlFor="message"
-          className="mb-2 block text-sm font-medium text-primary"
+          className="mb-3 block text-sm font-bold uppercase tracking-widest text-gray-400"
         >
-          Message <span className="text-red-600">*</span>
+          Message <span className="text-teal-400">*</span>
         </label>
         <textarea
           id="message"
@@ -186,11 +183,10 @@ export default function ContactForm() {
           onChange={(e) =>
             setFormData((prev) => ({ ...prev, message: e.target.value }))
           }
-          className={`w-full resize-vertical rounded-lg border px-4 py-3 text-text placeholder-text/40 outline-none transition-colors focus:border-secondary focus:ring-2 focus:ring-secondary/20 ${
-            errors.message
-              ? "border-red-400 bg-red-50"
-              : "border-light/50 bg-white"
-          }`}
+          className={`w-full resize-vertical rounded-xl border px-5 py-4 text-white placeholder-gray-600 outline-none transition-all duration-300 focus:ring-4 focus:ring-teal-500/10 ${errors.message
+              ? "border-red-500/50 bg-red-500/5"
+              : "border-white/10 bg-white/5 focus:border-teal-500"
+            }`}
           placeholder="Write your message here..."
         />
         {errors.message && (
@@ -201,9 +197,9 @@ export default function ContactForm() {
       {/* Submit */}
       <button
         type="submit"
-        className="w-full rounded-lg bg-primary px-6 py-3 text-lg font-medium text-white transition-colors hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-secondary/50 focus:ring-offset-2"
+        className="w-full rounded-xl bg-teal-500 px-8 py-4 text-lg font-bold text-white shadow-[0_0_30px_rgba(20,184,166,0.3)] transition-all duration-300 hover:bg-teal-400 hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-4 focus:ring-teal-500/20"
       >
-        Send Message
+        Send Cosmic Signal
       </button>
     </form>
   );

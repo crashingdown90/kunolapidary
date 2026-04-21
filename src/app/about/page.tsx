@@ -14,12 +14,13 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-bg">
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-primary to-primary/90 px-6 py-16 text-center text-white md:py-24">
-        <div className="mx-auto max-w-4xl">
-          <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
+      <section className="bg-[#020617] border-b border-white/5 py-20 text-center relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.1)_0,transparent_70%)] pointer-events-none"></div>
+        <div className="mx-auto max-w-4xl relative z-10">
+          <h1 className="mb-6 text-5xl md:text-7xl font-bold bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent">
             About Kuno Lapidary
           </h1>
-          <p className="text-lg text-light md:text-xl">
+          <p className="text-xl text-gray-400 md:text-2xl font-light">
             Unearthing Nature&apos;s Brilliance, One Stone at a Time
           </p>
         </div>
@@ -35,9 +36,9 @@ export default function AboutPage() {
         />
 
         {/* Our Story */}
-        <section className="mb-12">
-          <h2 className="mb-6 text-3xl font-bold text-primary">Our Story</h2>
-          <div className="space-y-4 text-lg leading-relaxed text-text">
+        <section className="mb-16">
+          <h2 className="mb-8 text-4xl font-bold text-white border-b border-white/10 pb-4">Our Story</h2>
+          <div className="space-y-6 text-lg leading-relaxed text-gray-300">
             <p>
               Kuno Lapidary was born from a deep and enduring passion for the
               earth sciences. What began as a personal fascination with the
@@ -64,11 +65,12 @@ export default function AboutPage() {
         </section>
 
         {/* Our Mission */}
-        <section className="mb-12 rounded-xl border border-light/30 bg-cream/30 p-8">
-          <h2 className="mb-6 text-3xl font-bold text-primary">
+        <section className="mb-16 glass-card rounded-3xl border border-white/10 p-10 md:p-14 shadow-2xl relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/5 blur-[100px] pointer-events-none"></div>
+          <h2 className="mb-8 text-4xl font-bold text-teal-400">
             Our Mission
           </h2>
-          <div className="space-y-4 text-lg leading-relaxed text-text">
+          <div className="space-y-6 text-lg leading-relaxed text-gray-300">
             <p>
               Our mission is simple yet ambitious: to educate, inspire, and
               connect people who share a love for geology, gemstones, and the
@@ -88,16 +90,16 @@ export default function AboutPage() {
         </section>
 
         {/* What We Cover */}
-        <section className="mb-12">
-          <h2 className="mb-8 text-3xl font-bold text-primary">
+        <section className="mb-20">
+          <h2 className="mb-12 text-4xl font-bold text-white border-b border-white/10 pb-4">
             What We Cover
           </h2>
           <div className="grid gap-8 md:grid-cols-3">
             {/* Lapidary Arts */}
-            <div className="rounded-xl border border-light/30 bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-secondary/10">
+            <div className="rounded-3xl border border-white/10 glass-card p-8 shadow-xl transition-transform hover:-translate-y-2">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-500/10 shadow-[0_0_15px_rgba(20,184,166,0.1)]">
                 <svg
-                  className="h-6 w-6 text-secondary"
+                  className="h-8 w-8 text-teal-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -110,10 +112,10 @@ export default function AboutPage() {
                   />
                 </svg>
               </div>
-              <h3 className="mb-3 text-xl font-semibold text-primary">
+              <h3 className="mb-4 text-2xl font-bold text-white">
                 Lapidary Arts
               </h3>
-              <p className="leading-relaxed text-text/80">
+              <p className="leading-relaxed text-gray-400 text-sm">
                 Explore the time-honored craft of cutting, shaping, and
                 polishing gemstones. From cabochon cutting and faceting
                 techniques to tumbling and carving, we cover the tools,
@@ -123,10 +125,10 @@ export default function AboutPage() {
             </div>
 
             {/* Gemstone Knowledge */}
-            <div className="rounded-xl border border-light/30 bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10">
+            <div className="rounded-3xl border border-white/10 glass-card p-8 shadow-xl transition-transform hover:-translate-y-2">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-purple-500/10 shadow-[0_0_15px_rgba(168,85,247,0.1)]">
                 <svg
-                  className="h-6 w-6 text-accent"
+                  className="h-8 w-8 text-purple-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -139,10 +141,10 @@ export default function AboutPage() {
                   />
                 </svg>
               </div>
-              <h3 className="mb-3 text-xl font-semibold text-primary">
+              <h3 className="mb-4 text-2xl font-bold text-white">
                 Gemstone Knowledge
               </h3>
-              <p className="leading-relaxed text-text/80">
+              <p className="leading-relaxed text-gray-400 text-sm">
                 Dive into comprehensive guides on precious and semi-precious
                 gemstones. Learn about their origins, properties, grading
                 criteria, identification techniques, and the cultural
@@ -152,10 +154,10 @@ export default function AboutPage() {
             </div>
 
             {/* Geological Sciences */}
-            <div className="rounded-xl border border-light/30 bg-white p-6 shadow-sm">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+            <div className="rounded-3xl border border-white/10 glass-card p-8 shadow-xl transition-transform hover:-translate-y-2">
+              <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 shadow-[0_0_15px_rgba(59,130,246,0.1)]">
                 <svg
-                  className="h-6 w-6 text-primary"
+                  className="h-8 w-8 text-blue-400"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -168,10 +170,10 @@ export default function AboutPage() {
                   />
                 </svg>
               </div>
-              <h3 className="mb-3 text-xl font-semibold text-primary">
+              <h3 className="mb-4 text-2xl font-bold text-white">
                 Geological Sciences
               </h3>
-              <p className="leading-relaxed text-text/80">
+              <p className="leading-relaxed text-gray-400 text-sm">
                 Understand the forces that shape our planet. From plate
                 tectonics and volcanism to mineral formation and rock cycles,
                 we break down the science that creates the raw materials every
@@ -182,13 +184,14 @@ export default function AboutPage() {
         </section>
 
         {/* Our Team */}
-        <section className="mb-12">
-          <h2 className="mb-6 text-3xl font-bold text-primary">Our Team</h2>
-          <div className="rounded-xl border border-light/30 bg-white p-8 shadow-sm">
-            <h3 className="mb-3 text-xl font-semibold text-secondary">
+        <section className="mb-20">
+          <h2 className="mb-8 text-4xl font-bold text-white border-b border-white/10 pb-4">Our Team</h2>
+          <div className="glass-card rounded-3xl border border-white/10 p-10 md:p-14 shadow-2xl relative overflow-hidden group">
+            <div className="absolute -top-24 -right-24 w-48 h-48 bg-purple-500/10 rounded-full blur-[80px] group-hover:bg-purple-500/20 transition-all"></div>
+            <h3 className="mb-6 text-2xl font-bold text-teal-400">
               The Kuno Lapidary Team
             </h3>
-            <p className="leading-relaxed text-text/80">
+            <p className="leading-relaxed text-gray-300 text-lg">
               Behind Kuno Lapidary is a dedicated team of writers,
               researchers, and earth science enthusiasts who share a common
               goal: making the world of geology, gemstones, and lapidary arts
@@ -202,15 +205,13 @@ export default function AboutPage() {
         </section>
 
         {/* Tagline / CTA */}
-        <section className="rounded-xl bg-gradient-to-r from-primary to-primary/90 p-10 text-center">
-          <p className="text-2xl font-semibold italic text-light md:text-3xl">
-            &ldquo;Unearthing Nature&apos;s Brilliance, One Stone at a
-            Time&rdquo;
+        <section className="rounded-3xl bg-gradient-to-br from-[#0f172a] to-[#020617] border border-white/10 p-16 text-center relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.1)_0,transparent_70%)] pointer-events-none"></div>
+          <p className="text-3xl font-bold italic text-white md:text-5xl mb-8 leading-tight">
+            &ldquo;Unearthing Nature&apos;s Brilliance, <br /> One Stone at a Time&rdquo;
           </p>
-          <p className="mt-4 text-cream/80">
-            Thank you for being part of the Kuno Lapidary community. Whether
-            you are here to learn, explore, or simply admire the wonders of
-            the earth, we are glad to have you with us.
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto uppercase tracking-widest font-semibold">
+            Thank you for being part of our journey.
           </p>
         </section>
       </div>
