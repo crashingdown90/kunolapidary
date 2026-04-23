@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getAllArticles } from "@/data/articles";
 import ArticleCard from "@/components/ArticleCard";
 import HeroIllustration from "@/components/illustrations/HeroIllustration";
@@ -111,7 +112,15 @@ export default function Home() {
 
             <div className="hidden lg:flex justify-end relative">
               <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full animate-pulse" />
-              <HeroIllustration className="w-full h-auto max-w-xl relative z-10 drop-shadow-[0_0_50px_rgba(20,184,166,0.2)]" />
+              <div className="w-full max-w-xl relative aspect-square z-10 overflow-hidden rounded-2xl border border-white/10 shadow-[0_0_50px_rgba(20,184,166,0.2)]">
+                <Image
+                  src="/images/hero-real.png"
+                  alt="Lapidary Workshop"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
             </div>
           </div>
         </div>
