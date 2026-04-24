@@ -1,28 +1,18 @@
+"use client";
+
+import { useEffect } from "react";
+
 /**
  * AdPlaceholder Component
  *
  * This component renders a placeholder area for advertisements.
- * When ready to integrate Google AdSense, replace the placeholder <div>
- * inside this component with the actual AdSense ad unit code:
- *
- * Example AdSense replacement:
- *   <ins className="adsbygoogle"
- *     style={{ display: "block" }}
- *     data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
- *     data-ad-slot="XXXXXXXXXX"
- *     data-ad-format="auto"
- *     data-full-width-responsive="true"
- *   />
- *
- * You will also need to add the AdSense script tag to your layout:
- *   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossOrigin="anonymous" />
- *
- * And call (window.adsbygoogle = window.adsbygoogle || []).push({}) after the component mounts.
+ * It now automatically renders real Google AdSense units if NEXT_PUBLIC_ADSENSE_ID is set.
  */
 
 interface AdPlaceholderProps {
   format: "horizontal" | "vertical" | "rectangle" | "article";
   className?: string;
+  adSlot?: string; // Optional: specify unique ad slot ID
 }
 
 const formatStyles: Record<AdPlaceholderProps["format"], { width: string; height: string }> = {
@@ -32,8 +22,34 @@ const formatStyles: Record<AdPlaceholderProps["format"], { width: string; height
   article: { width: "w-full", height: "h-[250px]" },
 };
 
-export default function AdPlaceholder({ format, className = "" }: AdPlaceholderProps) {
+export default function AdPlaceholder({ format, className = "", adSlot = "" }: AdPlaceholderProps) {
   const styles = formatStyles[format];
+  const adId = process.env.NEXT_PUBLIC_ADSENSE_ID || "ca-pub-9806436984867634";
+
+  useEffect(() => {
+    if (adId) {
+      try {
+        ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+      } catch (err) {
+        console.error("AdSense initialization error", err);
+      }
+    }
+  }, [adId]);
+
+  if (adId) {
+    return (
+      <aside className={`overflow-hidden ${styles.width} ${styles.height} ${className}`}>
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block", width: "100%", height: "100%" }}
+          data-ad-client={adId}
+          data-ad-slot={adSlot}
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        />
+      </aside>
+    );
+  }
 
   return (
     <aside
