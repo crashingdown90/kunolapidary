@@ -13,20 +13,15 @@ export default function Icon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #5C4033, #8B6914)",
-          borderRadius: 6,
+          background: "linear-gradient(135deg, #14b8a6, #8b5cf6)",
+          borderRadius: 8,
         }}
       >
-        <div
-          style={{
-            width: 16,
-            height: 16,
-            background: "linear-gradient(135deg, #D2B48C, #F5E6D3)",
-            transform: "rotate(45deg)",
-            borderRadius: 2,
-            display: "flex",
-          }}
-        />
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="12 2 2 9 12 22 22 9 12 2" />
+          <polyline points="2 9 12 15 22 9" />
+          <polyline points="12 2 12 15" />
+        </svg>
       </div>
     ),
     { ...size }

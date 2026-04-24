@@ -14,7 +14,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-bg">
       {/* Hero Section */}
-      <section className="bg-[#020617] border-b border-white/5 py-20 text-center relative overflow-hidden">
+      <section className="bg-light/30 border-b border-border py-20 text-center relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.1)_0,transparent_70%)] pointer-events-none"></div>
         <div className="mx-auto max-w-4xl relative z-10">
           <h1 className="mb-6 text-5xl md:text-7xl font-bold bg-gradient-to-r from-teal-400 to-purple-400 bg-clip-text text-transparent">
@@ -205,7 +205,7 @@ export default function AboutPage() {
         </section>
 
         {/* Tagline / CTA */}
-        <section className="rounded-3xl bg-gradient-to-br from-[#0f172a] to-[#020617] border border-white/10 p-16 text-center relative overflow-hidden">
+        <section className="rounded-3xl bg-gradient-to-br from-light to-bg border border-border p-16 text-center relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.1)_0,transparent_70%)] pointer-events-none"></div>
           <p className="text-3xl font-bold italic text-white md:text-5xl mb-8 leading-tight">
             &ldquo;Unearthing Nature&apos;s Brilliance, <br /> One Stone at a Time&rdquo;

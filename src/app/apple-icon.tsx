@@ -13,32 +13,15 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #2D1810, #5C4033)",
+          background: "linear-gradient(135deg, #14b8a6, #8b5cf6)",
           borderRadius: 36,
         }}
       >
-        <div
-          style={{
-            width: 80,
-            height: 80,
-            background: "linear-gradient(135deg, #D2B48C, #8B6914)",
-            transform: "rotate(45deg)",
-            borderRadius: 12,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <div
-            style={{
-              width: 36,
-              height: 36,
-              background: "rgba(255,255,255,0.35)",
-              borderRadius: 6,
-              display: "flex",
-            }}
-          />
-        </div>
+        <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="12 2 2 9 12 22 22 9 12 2" />
+          <polyline points="2 9 12 15 22 9" />
+          <polyline points="12 2 12 15" />
+        </svg>
       </div>
     ),
     { ...size }

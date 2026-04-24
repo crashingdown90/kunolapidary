@@ -1,25 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium Dark Theme */
+  /* Premium Light Theme */
   --color-primary: #14b8a6;
-  /* Teal / Emerald */
   --color-primary-hover: #0f766e;
   --color-secondary: #8b5cf6;
-  /* Amethyst */
   --color-secondary-hover: #7c3aed;
   --color-accent: #f59e0b;
-  /* Amber */
-  --color-light: #3f3f46;
-  --color-cream: #18181b;
-  /* Elevated Cards */
-  --color-text: #f8fafc;
-  --color-text-soft: #cbd5e1;
-  --color-bg: #09090b;
-  /* Obsidian Background */
-  --color-white: #ffffff;
-  --color-border: #27272a;
-  --color-muted: #a1a1aa;
+  
+  --color-light: #f1f5f9;
+  --color-cream: #f8fafc;
+  
+  --color-text: #0f172a;
+  --color-text-soft: #475569;
+  --color-bg: #ffffff;
+  
+  /* Overriding white and gray to look good on light bg since the codebase uses them assuming dark theme */
+  --color-white-override: #0f172a; 
+  --color-gray-override: #64748b;
+  
+  --color-border: #e2e8f0;
+  --color-muted: #94a3b8;
 }
 
 @theme inline {
@@ -39,6 +40,16 @@
   --font-display: var(--font-outfit), sans-serif;
   --font-serif: var(--font-serif), serif;
   --font-mono: "Fira Code", monospace;
+
+  /* Overrides for hardcoded utility classes */
+  --color-white: var(--color-white-override);
+  --color-gray-100: #e2e8f0;
+  --color-gray-200: #94a3b8;
+  --color-gray-300: #64748b;
+  --color-gray-400: #475569;
+  --color-gray-500: #334155;
+  --color-gray-600: #1e293b;
+  --color-gray-700: #0f172a;
 }
 
 * {
@@ -60,18 +71,18 @@ body {
 
 /* Glassmorphism Utilities */
 .glass {
-  background: rgba(15, 23, 42, 0.6);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(16px) saturate(180%);
   -webkit-backdrop-filter: blur(16px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .glass-card {
   position: relative;
-  background: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.2) 100%);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.7) 100%);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
   transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
@@ -81,13 +92,13 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(to bottom right, rgba(20, 184, 166, 0.2), transparent, rgba(139, 92, 246, 0.2));
+  background: linear-gradient(to bottom right, rgba(20, 184, 166, 0.4), transparent, rgba(139, 92, 246, 0.4));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   pointer-events: none;
-  opacity: 0.5;
+  opacity: 0;
   transition: opacity 0.5s;
 }
 

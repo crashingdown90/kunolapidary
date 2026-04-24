@@ -51,7 +51,7 @@ export default async function BlogPage({
   return (
     <>
       {/* Breadcrumb */}
-      <div className="bg-[#0b0f19] border-b border-white/5">
+      <div className="bg-light/30 border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Breadcrumb
             items={[
@@ -63,7 +63,7 @@ export default async function BlogPage({
       </div>
 
       {/* Page Header */}
-      <section className="bg-[#020617] border-b border-white/5 py-24 md:py-32 relative overflow-hidden">
+      <section className="bg-light/30 border-b border-border py-24 md:py-32 relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-teal-500/5 rounded-full blur-[120px] pointer-events-none"></div>
         <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -95,7 +95,7 @@ export default async function BlogPage({
                       priority
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent lg:hidden" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent lg:hidden" />
                 </div>
                 <div className="p-10 lg:p-20">
                   <div className="flex items-center gap-4 mb-8">

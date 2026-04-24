@@ -38,11 +38,11 @@ export default function CookieConsent() {
       role="dialog"
       aria-label="Cookie consent"
     >
-      <div className="border-t border-white/10 bg-[#0f172a]/95 backdrop-blur-xl px-4 py-5 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] sm:px-6 relative">
+      <div className="border-t border-border bg-bg/95 backdrop-blur-xl px-4 py-5 shadow-[0_-10px_40px_rgba(0,0,0,0.1)] sm:px-6 relative">
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-teal-500/30 to-transparent"></div>
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex-1">
-            <p className="text-sm leading-relaxed text-gray-300">
+            <p className="text-sm leading-relaxed text-text-soft">
               We use cookies to enhance your experience, serve personalized ads, and analyze site
               traffic. By clicking &quot;Accept,&quot; you consent to our use of cookies for
               advertising and analytics purposes.{" "}
@@ -57,13 +57,13 @@ export default function CookieConsent() {
           <div className="flex shrink-0 gap-3">
             <button
               onClick={() => handleDismiss("declined")}
-              className="rounded-xl border border-white/10 bg-white/5 px-6 py-2.5 text-sm font-bold text-gray-400 transition-all duration-300 hover:bg-white/10 hover:text-white"
+              className="rounded-xl border border-border bg-light px-6 py-2.5 text-sm font-bold text-text-soft transition-all duration-300 hover:bg-border hover:text-text"
             >
               Decline
             </button>
             <button
               onClick={() => handleDismiss("accepted")}
-              className="rounded-xl bg-teal-500 px-8 py-2.5 text-sm font-bold text-white shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all duration-300 hover:bg-teal-400 hover:scale-105 active:scale-95"
+              className="rounded-xl bg-teal-500 px-8 py-2.5 text-sm font-bold text-[#ffffff] shadow-[0_0_20px_rgba(20,184,166,0.3)] transition-all duration-300 hover:bg-teal-400 hover:scale-105 active:scale-95"
             >
               Accept
             </button>

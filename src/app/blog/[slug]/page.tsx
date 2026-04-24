@@ -96,7 +96,7 @@ export default async function BlogPostPage({
       <ReadingProgress />
 
       {/* Breadcrumb Section */}
-      <div className="bg-[#0f172a] border-b border-white/5 relative z-10">
+      <div className="bg-light/30 border-b border-border relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Breadcrumb
             items={[
@@ -128,7 +128,7 @@ export default async function BlogPostPage({
 
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-sm text-gray-400">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white text-xs font-bold shadow-[0_0_15px_rgba(20,184,166,0.2)]">
+                    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-[#ffffff] text-xs font-bold shadow-[0_0_15px_rgba(20,184,166,0.2)]">
                       KL
                     </div>
                     <div className="text-left">
@@ -211,7 +211,7 @@ export default async function BlogPostPage({
                   <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-10 -mt-10" />
                   <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8 relative z-10">
                     <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-teal-400 to-purple-500 p-[1px] flex-shrink-0 group-hover:rotate-3 transition-transform duration-500">
-                      <div className="w-full h-full rounded-2xl bg-[#020617] flex items-center justify-center text-white text-3xl font-black">
+                      <div className="w-full h-full rounded-2xl bg-bg flex items-center justify-center text-text text-3xl font-black">
                         KL
                       </div>
                     </div>
@@ -233,7 +233,7 @@ export default async function BlogPostPage({
               {/* Related Content */}
               {relatedArticles.length > 0 && (
                 <section className="mt-20 pt-16 border-t border-white/5">
-                  <h2 className="text-3xl font-bold text-white mb-10 flex items-center gap-3">
+                  <h2 className="text-3xl font-bold text-text mb-10 flex items-center gap-3">
                     <span className="w-8 h-[2px] bg-primary rounded-full" />
                     Recommended Reading
                   </h2>
@@ -245,7 +245,7 @@ export default async function BlogPostPage({
                         className="group flex flex-col p-8 glass-card rounded-3xl border border-white/5 hover:border-primary/50 transition-all duration-500 transform hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(20,184,166,0.1)]"
                       >
                         <CategoryBadge category={related.category} size="sm" />
-                        <h3 className="text-2xl font-bold text-white mt-6 mb-4 leading-tight group-hover:text-primary transition-colors">
+                        <h3 className="text-2xl font-bold text-text mt-6 mb-4 leading-tight group-hover:text-primary transition-colors">
                           {related.title}
                         </h3>
                         <p className="text-gray-400 text-base line-clamp-2 font-light">
