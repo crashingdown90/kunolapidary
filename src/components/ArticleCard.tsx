@@ -16,7 +16,7 @@ export default function ArticleCard({ article }: { article: Article }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: [0.23, 1, 0.32, 1] }}
-      className="group overflow-hidden rounded-[32px] glass-card flex flex-col h-full"
+      className="group overflow-hidden rounded-[32px] glass-card flex flex-col h-full border border-white/5 transition-all duration-700 hover:border-teal-500/40 hover:shadow-[0_0_40px_rgba(20,184,166,0.15)] hover:-translate-y-2"
     >
       {/* Cover Image Area */}
       <Link href={`/blog/${article.slug}`} className="block relative aspect-[4/3] overflow-hidden">
@@ -25,7 +25,7 @@ export default function ArticleCard({ article }: { article: Article }) {
             src={article.heroImage}
             alt={article.title}
             fill
-            className="object-cover transition-transform duration-1000 group-hover:scale-110"
+            className="object-cover transition-transform duration-1000 group-hover:scale-125 group-hover:rotate-1"
           />
         ) : CoverComponent ? (
           <CoverComponent className="w-full h-full object-contain p-8" />
@@ -39,7 +39,7 @@ export default function ArticleCard({ article }: { article: Article }) {
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out z-20 pointer-events-none" />
 
       {/* Content */}
-      <div className="p-8 flex flex-col flex-1 relative z-30">
+      <div className="p-6 md:p-8 flex flex-col flex-1 relative z-30">
         {/* Category & Date */}
         <div className="flex items-center justify-between mb-6">
           {article.category && (
@@ -52,7 +52,7 @@ export default function ArticleCard({ article }: { article: Article }) {
 
         {/* Title */}
         <Link href={`/blog/${article.slug}`} className="flex-1">
-          <h2 className="text-2xl font-serif text-text leading-tight mb-4 group-hover:text-teal-400 transition-colors duration-500">
+          <h2 className="text-xl md:text-2xl font-serif text-text leading-tight mb-4 group-hover:text-teal-400 transition-colors duration-500">
             {article.title}
           </h2>
         </Link>

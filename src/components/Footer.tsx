@@ -14,26 +14,26 @@ export default function Footer() {
 
       <div className="mx-auto max-w-7xl px-6 sm:px-6 lg:px-8 relative z-10">
         {/* Footer Columns */}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4 lg:grid-cols-5">
           {/* Column 1: Logo + Tagline + Description */}
-          <div className="lg:col-span-1">
-            <Link href="/" className="inline-block mb-6" aria-label="Kuno Lapidary Home">
+          <div className="col-span-2 md:col-span-4 lg:col-span-2">
+            <Link href="/" className="inline-block mb-4" aria-label="Kuno Lapidary Home">
               <Logo size="sm" />
             </Link>
-            <p className="text-xl font-serif italic text-text mb-6">
+            <p className="text-xl font-serif italic text-text mb-4">
               Exploring Earth&apos;s <span className="text-teal-400">Hidden Treasures</span>
             </p>
-            <p className="text-sm leading-relaxed text-text-soft font-light">
+            <p className="text-sm leading-relaxed text-text-soft font-light max-w-sm">
               Your trusted guide to the science of lapidary and the geological history that shapes our unique planet.
             </p>
           </div>
 
           {/* Column 2: Quick Links */}
-          <div>
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-text mb-6">
+          <div className="col-span-1">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-text mb-5">
               Quick Links
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -48,11 +48,11 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Topics */}
-          <div>
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-text mb-6">
+          <div className="col-span-1">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-text mb-5">
               Curated Topics
             </h3>
-            <ul className="space-y-4">
+            <ul className="space-y-3">
               {categories.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -67,11 +67,11 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Newsletter or Legal */}
-          <div>
-            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-text mb-6">
+          <div className="col-span-2 md:col-span-2 lg:col-span-1">
+            <h3 className="text-[10px] font-bold uppercase tracking-[0.3em] text-text mb-5">
               Our Presence
             </h3>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {legalLinks.map((link) => (
                 <Link
                   key={link.href}
