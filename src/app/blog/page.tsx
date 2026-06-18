@@ -4,6 +4,7 @@ import Image from "next/image";
 import { getAllArticles, getAllCategories } from "@/data/articles";
 import Breadcrumb from "@/components/Breadcrumb";
 import BlogInteractive from "@/components/BlogInteractive";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: "Blog - Lapidary, Gemstones & Geology Articles",
@@ -103,7 +104,9 @@ export default async function BlogPage() {
           </div>
         )}
 
-        <BlogInteractive articles={remainingArticles} categories={categories} />
+        <Suspense fallback={<div className="text-center py-20 text-gray-500 font-light">Loading articles...</div>}>
+          <BlogInteractive articles={remainingArticles} categories={categories} />
+        </Suspense>
       </div>
     </>
   );
